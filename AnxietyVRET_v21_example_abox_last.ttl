@@ -1,0 +1,748 @@
+@prefix ex: <http://example.org/anxiety-vret#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:VRScenario_Main a ex:VR_Scenario, owl:NamedIndividual ;
+  ex:hasStage ex:Stage1_Baseline, ex:Stage2_PrimaryTrigger_MinorUncertainty, ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty,
+             ex:Stage4_CognitiveLoad, ex:Stage5_RepetitionLoop, ex:Stage6_PartialResolution .
+
+ex:SI_001_BreathingScreen a ex:Safety_Intervention, owl:NamedIndividual .
+
+ex:SEP_001_SafeExit a ex:Safe_Exit_Protocol, owl:NamedIndividual .
+
+ex:ALT_001_SessionTerminated a ex:Alternative_State, owl:NamedIndividual ;
+  ex:triggersSafeExit ex:SEP_001_SafeExit .
+
+ex:Param_trigger_intensity a ex:Scenario_Parameter, owl:NamedIndividual ;
+  rdfs:label "trigger_intensity" .
+
+ex:CMD_001_SetTriggerIntensity a ex:System_Command, owl:NamedIndividual ;
+  ex:commandName "set_trigger_intensity"^^xsd:string ;
+  ex:commandPayload "{\"target\":\"Uncertainty\",\"intensity\":3}"^^xsd:string .
+
+ex:OBJ_001_TaskCard a ex:Interactable_Object, owl:NamedIndividual ;
+  ex:objectId "OBJ_TASK_02"^^xsd:string .
+
+ex:RiskLevel_Minimal a ex:Risk_Level, owl:NamedIndividual ; rdfs:label "Minimal" .
+ex:RiskLevel_Mild a ex:Risk_Level, owl:NamedIndividual ; rdfs:label "Mild" .
+ex:RiskLevel_Moderate a ex:Risk_Level, owl:NamedIndividual ; rdfs:label "Moderate" .
+ex:RiskLevel_Severe a ex:Risk_Level, owl:NamedIndividual ; rdfs:label "Severe" .
+
+ex:SM_001_Regression a ex:Statistical_Method, owl:NamedIndividual ;
+  ex:methodName "Regression" ;
+  ex:methodPurpose "Quantify relationships among session summary variables." .
+
+ex:SM_002_DescriptiveStats a ex:Statistical_Method, owl:NamedIndividual ;
+  ex:methodName "Descriptive statistics" ;
+  ex:methodPurpose "Summarize HR and stage durations." .
+
+ex:Alg_SVM_01 a ex:Support_Vector_Machines, owl:NamedIndividual ;
+  ex:Model_Accuracy "0.81"^^xsd:float ;
+  ex:Prediction_Error_Rate "0.19"^^xsd:float .
+
+ex:GAD7_Item_1 a ex:GAD7_Item, owl:NamedIndividual ;
+  rdfs:label "GAD-7 Item 1" .
+
+ex:GAD7_Item_2 a ex:GAD7_Item, owl:NamedIndividual ;
+  rdfs:label "GAD-7 Item 2" .
+
+ex:GAD7_Item_3 a ex:GAD7_Item, owl:NamedIndividual ;
+  rdfs:label "GAD-7 Item 3" .
+
+ex:GAD7_Item_4 a ex:GAD7_Item, owl:NamedIndividual ;
+  rdfs:label "GAD-7 Item 4" .
+
+ex:GAD7_Item_5 a ex:GAD7_Item, owl:NamedIndividual ;
+  rdfs:label "GAD-7 Item 5" .
+
+ex:GAD7_Item_6 a ex:GAD7_Item, owl:NamedIndividual ;
+  rdfs:label "GAD-7 Item 6" .
+
+ex:GAD7_Item_7 a ex:GAD7_Item, owl:NamedIndividual ;
+  rdfs:label "GAD-7 Item 7" .
+
+ex:PD_P001_001 a ex:Physiological_Data, owl:NamedIndividual ;
+  ex:heartRateValue "75.0"^^xsd:float ;
+  ex:observationTimestamp "2026-02-01T10:00:30"^^xsd:dateTime .
+
+ex:PD_P001_002 a ex:Physiological_Data, ex:HighPhysiologicalArousal, owl:NamedIndividual ;
+  ex:heartRateValue "91.0"^^xsd:float ;
+  ex:observationTimestamp "2026-02-01T10:05:50"^^xsd:dateTime .
+
+ex:PD_P001_003 a ex:Physiological_Data, ex:HighPhysiologicalArousal, owl:NamedIndividual ;
+  ex:heartRateValue "145.0"^^xsd:float ;
+  ex:observationTimestamp "2026-02-01T10:06:10"^^xsd:dateTime .
+
+ex:Patient_P001 a ex:Patient, ex:ModerateAnxiety, owl:NamedIndividual ;
+  ex:gad7TotalScore 12 ;
+  ex:GAD7Score "12.0"^^xsd:float ;
+  ex:baselineHeartRate "70.0"^^xsd:float ;
+  ex:safetyUpperHRLimit "140.0"^^xsd:float ;
+  ex:hasRiskLevel ex:RiskLevel_Moderate ;
+  ex:hasPhysiologicalData ex:PD_P001_001, ex:PD_P001_002, ex:PD_P001_003 ;
+  ex:participatesIn ex:Session_S001 .
+
+ex:GAD7_Response_P001_1 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P001 ;
+  ex:hasGAD7Item ex:GAD7_Item_1 ;
+  ex:gad7ItemScore 1 .
+
+ex:GAD7_Response_P001_2 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P001 ;
+  ex:hasGAD7Item ex:GAD7_Item_2 ;
+  ex:gad7ItemScore 1 .
+
+ex:GAD7_Response_P001_3 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P001 ;
+  ex:hasGAD7Item ex:GAD7_Item_3 ;
+  ex:gad7ItemScore 2 .
+
+ex:GAD7_Response_P001_4 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P001 ;
+  ex:hasGAD7Item ex:GAD7_Item_4 ;
+  ex:gad7ItemScore 2 .
+
+ex:GAD7_Response_P001_5 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P001 ;
+  ex:hasGAD7Item ex:GAD7_Item_5 ;
+  ex:gad7ItemScore 2 .
+
+ex:GAD7_Response_P001_6 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P001 ;
+  ex:hasGAD7Item ex:GAD7_Item_6 ;
+  ex:gad7ItemScore 2 .
+
+ex:GAD7_Response_P001_7 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P001 ;
+  ex:hasGAD7Item ex:GAD7_Item_7 ;
+  ex:gad7ItemScore 2 .
+
+ex:AH_P001_001 a ex:Adaptation_History, owl:NamedIndividual ;
+  ex:associatedWith ex:Session_S001 ;
+  ex:changeTimestamp "2026-02-01T10:02:20"^^xsd:dateTime ;
+  ex:logsChange ex:Param_trigger_intensity ;
+  ex:oldValue "2" ;
+  ex:newValue "3" .
+
+ex:SD_P001_PostSessionSurvey a ex:Survey_Data, owl:NamedIndividual ;
+  ex:pqTotalScore "3.1"^^xsd:float ;
+  ex:ssqTotalScore "11.0"^^xsd:float ;
+  ex:collectedIn ex:Session_S001 .
+
+ex:EV_P001_001_StageChange_1_2 a ex:Stage_Change_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S001 ;
+  ex:eventInStage ex:Stage1_Baseline ;
+  ex:fromStage ex:Stage1_Baseline ;
+  ex:toStage ex:Stage2_PrimaryTrigger_MinorUncertainty ;
+  ex:eventSeq 1 ;
+  ex:eventTimestamp "2026-02-01T10:01:00"^^xsd:dateTime ;
+  ex:eventType "stage_change"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"stage_change\",\"from\":\"Stage1_Baseline\",\"to\":\"Stage2_PrimaryTrigger_MinorUncertainty\"}"^^xsd:string .
+
+ex:EV_P001_002_TriggerShown_Uncertainty a ex:Trigger_Shown_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S001 ;
+  ex:eventInStage ex:Stage2_PrimaryTrigger_MinorUncertainty ;
+  ex:refersToTrigger ex:Uncertainty ;
+  ex:triggerId "TRG_UNC_01"^^xsd:string ;
+  ex:eventSeq 2 ;
+  ex:eventTimestamp "2026-02-01T10:02:15"^^xsd:dateTime ;
+  ex:eventType "trigger_shown"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"trigger_shown\",\"trigger\":\"Uncertainty\",\"triggerId\":\"TRG_UNC_01\"}"^^xsd:string .
+
+ex:EV_P001_003_SystemCommand_IntensityUp a ex:System_Command_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S001 ;
+  ex:eventInStage ex:Stage2_PrimaryTrigger_MinorUncertainty ;
+  ex:emitsCommand ex:CMD_001_SetTriggerIntensity ;
+  ex:eventSeq 3 ;
+  ex:eventTimestamp "2026-02-01T10:02:20"^^xsd:dateTime ;
+  ex:eventType "system_command"^^xsd:string .
+
+ex:EV_P001_004_ObjectInteraction_Choice a ex:Object_Interaction_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S001 ;
+  ex:eventInStage ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty ;
+  ex:refersToObject ex:OBJ_001_TaskCard ;
+  ex:objectId "OBJ_TASK_02"^^xsd:string ;
+  ex:interactionType "select_option"^^xsd:string ;
+  ex:eventSeq 4 ;
+  ex:eventTimestamp "2026-02-01T10:05:10"^^xsd:dateTime ;
+  ex:eventType "object_interaction"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"object_interaction\",\"objectId\":\"OBJ_TASK_02\",\"interactionType\":\"select_option\"}"^^xsd:string .
+
+ex:EV_P001_006_TextShown_Warning a ex:Text_Shown_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S001 ;
+  ex:eventInStage ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty ;
+  ex:eventSeq 5 ;
+  ex:eventTimestamp "2026-02-01T10:05:30"^^xsd:dateTime ;
+  ex:eventType "text_shown"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"text_shown\",\"text\":\"Devam etmek ister misiniz?\"}"^^xsd:string .
+
+ex:EV_P001_005_Safety_HR_Anomaly a ex:Safety_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S001 ;
+  ex:eventInStage ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty ;
+  ex:safetyReason "HR_above_threshold"^^xsd:string ;
+  ex:triggersIntervention ex:SI_001_BreathingScreen ;
+  ex:eventSeq 6 ;
+  ex:eventTimestamp "2026-02-01T10:06:00"^^xsd:dateTime ;
+  ex:eventType "safety_event"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"safety_event\",\"reason\":\"HR_above_threshold\",\"intervention\":\"breathing_screen\"}"^^xsd:string .
+
+ex:Session_S001 a ex:Therapy_Session, owl:NamedIndividual ;
+  ex:hasVREvent ex:EV_P001_001_StageChange_1_2, ex:EV_P001_002_TriggerShown_Uncertainty, ex:EV_P001_003_SystemCommand_IntensityUp, ex:EV_P001_004_ObjectInteraction_Choice, ex:EV_P001_006_TextShown_Warning, ex:EV_P001_005_Safety_HR_Anomaly ;
+  ex:hasSafetyIntervention ex:SI_001_BreathingScreen ;
+  ex:recordsResponse ex:GAD7_Response_P001_1, ex:GAD7_Response_P001_2, ex:GAD7_Response_P001_3, ex:GAD7_Response_P001_4, ex:GAD7_Response_P001_5, ex:GAD7_Response_P001_6, ex:GAD7_Response_P001_7, ex:SD_P001_PostSessionSurvey .
+
+ex:PR_P001_001 a ex:Prediction_Result, owl:NamedIndividual ;
+  ex:usedIn ex:Session_S001 ;
+  ex:predictedAnxietyLevel "Moderate"^^xsd:string ;
+  ex:predictionConfidence "0.71"^^xsd:float ;
+  ex:predictionTimestamp "2026-02-01T11:00:00"^^xsd:dateTime .
+
+ex:PD_P002_001 a ex:Physiological_Data, owl:NamedIndividual ;
+  ex:heartRateValue "77.0"^^xsd:float ;
+  ex:observationTimestamp "2026-02-02T10:00:30"^^xsd:dateTime .
+
+ex:PD_P002_002 a ex:Physiological_Data, ex:HighPhysiologicalArousal, owl:NamedIndividual ;
+  ex:heartRateValue "93.6"^^xsd:float ;
+  ex:observationTimestamp "2026-02-02T10:05:50"^^xsd:dateTime .
+
+ex:PD_P002_003 a ex:Physiological_Data, ex:HighPhysiologicalArousal, owl:NamedIndividual ;
+  ex:heartRateValue "150.0"^^xsd:float ;
+  ex:observationTimestamp "2026-02-02T10:06:10"^^xsd:dateTime .
+
+ex:Patient_P002 a ex:Patient, ex:SevereAnxiety, owl:NamedIndividual ;
+  ex:gad7TotalScore 18 ;
+  ex:GAD7Score "18.0"^^xsd:float ;
+  ex:baselineHeartRate "72.0"^^xsd:float ;
+  ex:safetyUpperHRLimit "145.0"^^xsd:float ;
+  ex:hasRiskLevel ex:RiskLevel_Severe ;
+  ex:hasPhysiologicalData ex:PD_P002_001, ex:PD_P002_002, ex:PD_P002_003 ;
+  ex:participatesIn ex:Session_S002 .
+
+ex:GAD7_Response_P002_1 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P002 ;
+  ex:hasGAD7Item ex:GAD7_Item_1 ;
+  ex:gad7ItemScore 2 .
+
+ex:GAD7_Response_P002_2 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P002 ;
+  ex:hasGAD7Item ex:GAD7_Item_2 ;
+  ex:gad7ItemScore 2 .
+
+ex:GAD7_Response_P002_3 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P002 ;
+  ex:hasGAD7Item ex:GAD7_Item_3 ;
+  ex:gad7ItemScore 2 .
+
+ex:GAD7_Response_P002_4 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P002 ;
+  ex:hasGAD7Item ex:GAD7_Item_4 ;
+  ex:gad7ItemScore 3 .
+
+ex:GAD7_Response_P002_5 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P002 ;
+  ex:hasGAD7Item ex:GAD7_Item_5 ;
+  ex:gad7ItemScore 3 .
+
+ex:GAD7_Response_P002_6 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P002 ;
+  ex:hasGAD7Item ex:GAD7_Item_6 ;
+  ex:gad7ItemScore 3 .
+
+ex:GAD7_Response_P002_7 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P002 ;
+  ex:hasGAD7Item ex:GAD7_Item_7 ;
+  ex:gad7ItemScore 3 .
+
+ex:AH_P002_001 a ex:Adaptation_History, owl:NamedIndividual ;
+  ex:associatedWith ex:Session_S002 ;
+  ex:changeTimestamp "2026-02-02T10:02:20"^^xsd:dateTime ;
+  ex:logsChange ex:Param_trigger_intensity ;
+  ex:oldValue "2" ;
+  ex:newValue "3" .
+
+ex:SD_P002_PostSessionSurvey a ex:Survey_Data, owl:NamedIndividual ;
+  ex:pqTotalScore "3.2"^^xsd:float ;
+  ex:ssqTotalScore "12.0"^^xsd:float ;
+  ex:collectedIn ex:Session_S002 .
+
+ex:EV_P002_001_StageChange_1_2 a ex:Stage_Change_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S002 ;
+  ex:eventInStage ex:Stage1_Baseline ;
+  ex:fromStage ex:Stage1_Baseline ;
+  ex:toStage ex:Stage2_PrimaryTrigger_MinorUncertainty ;
+  ex:eventSeq 1 ;
+  ex:eventTimestamp "2026-02-02T10:01:00"^^xsd:dateTime ;
+  ex:eventType "stage_change"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"stage_change\",\"from\":\"Stage1_Baseline\",\"to\":\"Stage2_PrimaryTrigger_MinorUncertainty\"}"^^xsd:string .
+
+ex:EV_P002_002_TriggerShown_Uncertainty a ex:Trigger_Shown_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S002 ;
+  ex:eventInStage ex:Stage2_PrimaryTrigger_MinorUncertainty ;
+  ex:refersToTrigger ex:Uncertainty ;
+  ex:triggerId "TRG_UNC_02"^^xsd:string ;
+  ex:eventSeq 2 ;
+  ex:eventTimestamp "2026-02-02T10:02:15"^^xsd:dateTime ;
+  ex:eventType "trigger_shown"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"trigger_shown\",\"trigger\":\"Uncertainty\",\"triggerId\":\"TRG_UNC_02\"}"^^xsd:string .
+
+ex:EV_P002_003_SystemCommand_IntensityUp a ex:System_Command_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S002 ;
+  ex:eventInStage ex:Stage2_PrimaryTrigger_MinorUncertainty ;
+  ex:emitsCommand ex:CMD_001_SetTriggerIntensity ;
+  ex:eventSeq 3 ;
+  ex:eventTimestamp "2026-02-02T10:02:20"^^xsd:dateTime ;
+  ex:eventType "system_command"^^xsd:string .
+
+ex:EV_P002_004_ObjectInteraction_Choice a ex:Object_Interaction_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S002 ;
+  ex:eventInStage ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty ;
+  ex:refersToObject ex:OBJ_001_TaskCard ;
+  ex:objectId "OBJ_TASK_02"^^xsd:string ;
+  ex:interactionType "select_option"^^xsd:string ;
+  ex:eventSeq 4 ;
+  ex:eventTimestamp "2026-02-02T10:05:10"^^xsd:dateTime ;
+  ex:eventType "object_interaction"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"object_interaction\",\"objectId\":\"OBJ_TASK_02\",\"interactionType\":\"select_option\"}"^^xsd:string .
+
+ex:EV_P002_006_TextShown_Warning a ex:Text_Shown_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S002 ;
+  ex:eventInStage ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty ;
+  ex:eventSeq 5 ;
+  ex:eventTimestamp "2026-02-02T10:05:30"^^xsd:dateTime ;
+  ex:eventType "text_shown"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"text_shown\",\"text\":\"Devam etmek ister misiniz?\"}"^^xsd:string .
+
+ex:EV_P002_005_Safety_HR_Anomaly a ex:Safety_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S002 ;
+  ex:eventInStage ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty ;
+  ex:safetyReason "HR_above_threshold"^^xsd:string ;
+  ex:triggersIntervention ex:SI_001_BreathingScreen ;
+  ex:eventSeq 6 ;
+  ex:eventTimestamp "2026-02-02T10:06:00"^^xsd:dateTime ;
+  ex:eventType "safety_event"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"safety_event\",\"reason\":\"HR_above_threshold\",\"intervention\":\"breathing_screen\"}"^^xsd:string .
+
+ex:Session_S002 a ex:Therapy_Session, owl:NamedIndividual ;
+  ex:hasVREvent ex:EV_P002_001_StageChange_1_2, ex:EV_P002_002_TriggerShown_Uncertainty, ex:EV_P002_003_SystemCommand_IntensityUp, ex:EV_P002_004_ObjectInteraction_Choice, ex:EV_P002_006_TextShown_Warning, ex:EV_P002_005_Safety_HR_Anomaly ;
+  ex:hasSafetyIntervention ex:SI_001_BreathingScreen ;
+  ex:recordsResponse ex:GAD7_Response_P002_1, ex:GAD7_Response_P002_2, ex:GAD7_Response_P002_3, ex:GAD7_Response_P002_4, ex:GAD7_Response_P002_5, ex:GAD7_Response_P002_6, ex:GAD7_Response_P002_7, ex:SD_P002_PostSessionSurvey .
+
+ex:PR_P002_001 a ex:Prediction_Result, owl:NamedIndividual ;
+  ex:usedIn ex:Session_S002 ;
+  ex:predictedAnxietyLevel "Severe"^^xsd:string ;
+  ex:predictionConfidence "0.72"^^xsd:float ;
+  ex:predictionTimestamp "2026-02-02T11:00:00"^^xsd:dateTime .
+
+ex:PD_P003_001 a ex:Physiological_Data, owl:NamedIndividual ;
+  ex:heartRateValue "73.0"^^xsd:float ;
+  ex:observationTimestamp "2026-02-03T10:00:30"^^xsd:dateTime .
+
+ex:PD_P003_002 a ex:Physiological_Data, ex:HighPhysiologicalArousal, owl:NamedIndividual ;
+  ex:heartRateValue "88.4"^^xsd:float ;
+  ex:observationTimestamp "2026-02-03T10:05:50"^^xsd:dateTime .
+
+ex:PD_P003_003 a ex:Physiological_Data, ex:HighPhysiologicalArousal, owl:NamedIndividual ;
+  ex:heartRateValue "140.0"^^xsd:float ;
+  ex:observationTimestamp "2026-02-03T10:06:10"^^xsd:dateTime .
+
+ex:Patient_P003 a ex:Patient, ex:MildAnxiety, owl:NamedIndividual ;
+  ex:gad7TotalScore 7 ;
+  ex:GAD7Score "7.0"^^xsd:float ;
+  ex:baselineHeartRate "68.0"^^xsd:float ;
+  ex:safetyUpperHRLimit "135.0"^^xsd:float ;
+  ex:hasRiskLevel ex:RiskLevel_Mild ;
+  ex:hasPhysiologicalData ex:PD_P003_001, ex:PD_P003_002, ex:PD_P003_003 ;
+  ex:participatesIn ex:Session_S003 .
+
+ex:GAD7_Response_P003_1 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P003 ;
+  ex:hasGAD7Item ex:GAD7_Item_1 ;
+  ex:gad7ItemScore 1 .
+
+ex:GAD7_Response_P003_2 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P003 ;
+  ex:hasGAD7Item ex:GAD7_Item_2 ;
+  ex:gad7ItemScore 1 .
+
+ex:GAD7_Response_P003_3 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P003 ;
+  ex:hasGAD7Item ex:GAD7_Item_3 ;
+  ex:gad7ItemScore 1 .
+
+ex:GAD7_Response_P003_4 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P003 ;
+  ex:hasGAD7Item ex:GAD7_Item_4 ;
+  ex:gad7ItemScore 1 .
+
+ex:GAD7_Response_P003_5 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P003 ;
+  ex:hasGAD7Item ex:GAD7_Item_5 ;
+  ex:gad7ItemScore 1 .
+
+ex:GAD7_Response_P003_6 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P003 ;
+  ex:hasGAD7Item ex:GAD7_Item_6 ;
+  ex:gad7ItemScore 1 .
+
+ex:GAD7_Response_P003_7 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P003 ;
+  ex:hasGAD7Item ex:GAD7_Item_7 ;
+  ex:gad7ItemScore 1 .
+
+ex:AH_P003_001 a ex:Adaptation_History, owl:NamedIndividual ;
+  ex:associatedWith ex:Session_S003 ;
+  ex:changeTimestamp "2026-02-03T10:02:20"^^xsd:dateTime ;
+  ex:logsChange ex:Param_trigger_intensity ;
+  ex:oldValue "2" ;
+  ex:newValue "3" .
+
+ex:SD_P003_PostSessionSurvey a ex:Survey_Data, owl:NamedIndividual ;
+  ex:pqTotalScore "3.3"^^xsd:float ;
+  ex:ssqTotalScore "13.0"^^xsd:float ;
+  ex:collectedIn ex:Session_S003 .
+
+ex:EV_P003_001_StageChange_1_2 a ex:Stage_Change_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S003 ;
+  ex:eventInStage ex:Stage1_Baseline ;
+  ex:fromStage ex:Stage1_Baseline ;
+  ex:toStage ex:Stage2_PrimaryTrigger_MinorUncertainty ;
+  ex:eventSeq 1 ;
+  ex:eventTimestamp "2026-02-03T10:01:00"^^xsd:dateTime ;
+  ex:eventType "stage_change"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"stage_change\",\"from\":\"Stage1_Baseline\",\"to\":\"Stage2_PrimaryTrigger_MinorUncertainty\"}"^^xsd:string .
+
+ex:EV_P003_002_TriggerShown_Uncertainty a ex:Trigger_Shown_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S003 ;
+  ex:eventInStage ex:Stage2_PrimaryTrigger_MinorUncertainty ;
+  ex:refersToTrigger ex:Uncertainty ;
+  ex:triggerId "TRG_UNC_03"^^xsd:string ;
+  ex:eventSeq 2 ;
+  ex:eventTimestamp "2026-02-03T10:02:15"^^xsd:dateTime ;
+  ex:eventType "trigger_shown"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"trigger_shown\",\"trigger\":\"Uncertainty\",\"triggerId\":\"TRG_UNC_03\"}"^^xsd:string .
+
+ex:EV_P003_003_SystemCommand_IntensityUp a ex:System_Command_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S003 ;
+  ex:eventInStage ex:Stage2_PrimaryTrigger_MinorUncertainty ;
+  ex:emitsCommand ex:CMD_001_SetTriggerIntensity ;
+  ex:eventSeq 3 ;
+  ex:eventTimestamp "2026-02-03T10:02:20"^^xsd:dateTime ;
+  ex:eventType "system_command"^^xsd:string .
+
+ex:EV_P003_004_ObjectInteraction_Choice a ex:Object_Interaction_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S003 ;
+  ex:eventInStage ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty ;
+  ex:refersToObject ex:OBJ_001_TaskCard ;
+  ex:objectId "OBJ_TASK_02"^^xsd:string ;
+  ex:interactionType "select_option"^^xsd:string ;
+  ex:eventSeq 4 ;
+  ex:eventTimestamp "2026-02-03T10:05:10"^^xsd:dateTime ;
+  ex:eventType "object_interaction"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"object_interaction\",\"objectId\":\"OBJ_TASK_02\",\"interactionType\":\"select_option\"}"^^xsd:string .
+
+ex:EV_P003_006_TextShown_Warning a ex:Text_Shown_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S003 ;
+  ex:eventInStage ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty ;
+  ex:eventSeq 5 ;
+  ex:eventTimestamp "2026-02-03T10:05:30"^^xsd:dateTime ;
+  ex:eventType "text_shown"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"text_shown\",\"text\":\"Devam etmek ister misiniz?\"}"^^xsd:string .
+
+ex:EV_P003_005_Safety_HR_Anomaly a ex:Safety_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S003 ;
+  ex:eventInStage ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty ;
+  ex:safetyReason "HR_above_threshold"^^xsd:string ;
+  ex:triggersIntervention ex:SI_001_BreathingScreen ;
+  ex:eventSeq 6 ;
+  ex:eventTimestamp "2026-02-03T10:06:00"^^xsd:dateTime ;
+  ex:eventType "safety_event"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"safety_event\",\"reason\":\"HR_above_threshold\",\"intervention\":\"breathing_screen\"}"^^xsd:string .
+
+ex:Session_S003 a ex:Therapy_Session, owl:NamedIndividual ;
+  ex:hasVREvent ex:EV_P003_001_StageChange_1_2, ex:EV_P003_002_TriggerShown_Uncertainty, ex:EV_P003_003_SystemCommand_IntensityUp, ex:EV_P003_004_ObjectInteraction_Choice, ex:EV_P003_006_TextShown_Warning, ex:EV_P003_005_Safety_HR_Anomaly ;
+  ex:hasSafetyIntervention ex:SI_001_BreathingScreen ;
+  ex:recordsResponse ex:GAD7_Response_P003_1, ex:GAD7_Response_P003_2, ex:GAD7_Response_P003_3, ex:GAD7_Response_P003_4, ex:GAD7_Response_P003_5, ex:GAD7_Response_P003_6, ex:GAD7_Response_P003_7, ex:SD_P003_PostSessionSurvey .
+
+ex:PR_P003_001 a ex:Prediction_Result, owl:NamedIndividual ;
+  ex:usedIn ex:Session_S003 ;
+  ex:predictedAnxietyLevel "Mild"^^xsd:string ;
+  ex:predictionConfidence "0.73"^^xsd:float ;
+  ex:predictionTimestamp "2026-02-03T11:00:00"^^xsd:dateTime .
+
+ex:PD_P004_001 a ex:Physiological_Data, owl:NamedIndividual ;
+  ex:heartRateValue "71.0"^^xsd:float ;
+  ex:observationTimestamp "2026-02-04T10:00:30"^^xsd:dateTime .
+
+ex:PD_P004_002 a ex:Physiological_Data, ex:HighPhysiologicalArousal, owl:NamedIndividual ;
+  ex:heartRateValue "85.8"^^xsd:float ;
+  ex:observationTimestamp "2026-02-04T10:05:50"^^xsd:dateTime .
+
+ex:PD_P004_003 a ex:Physiological_Data, ex:HighPhysiologicalArousal, owl:NamedIndividual ;
+  ex:heartRateValue "135.0"^^xsd:float ;
+  ex:observationTimestamp "2026-02-04T10:06:10"^^xsd:dateTime .
+
+ex:Patient_P004 a ex:Patient, ex:MinimalAnxiety, owl:NamedIndividual ;
+  ex:gad7TotalScore 4 ;
+  ex:GAD7Score "4.0"^^xsd:float ;
+  ex:baselineHeartRate "66.0"^^xsd:float ;
+  ex:safetyUpperHRLimit "130.0"^^xsd:float ;
+  ex:hasRiskLevel ex:RiskLevel_Minimal ;
+  ex:hasPhysiologicalData ex:PD_P004_001, ex:PD_P004_002, ex:PD_P004_003 ;
+  ex:participatesIn ex:Session_S004 .
+
+ex:GAD7_Response_P004_1 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P004 ;
+  ex:hasGAD7Item ex:GAD7_Item_1 ;
+  ex:gad7ItemScore 0 .
+
+ex:GAD7_Response_P004_2 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P004 ;
+  ex:hasGAD7Item ex:GAD7_Item_2 ;
+  ex:gad7ItemScore 0 .
+
+ex:GAD7_Response_P004_3 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P004 ;
+  ex:hasGAD7Item ex:GAD7_Item_3 ;
+  ex:gad7ItemScore 0 .
+
+ex:GAD7_Response_P004_4 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P004 ;
+  ex:hasGAD7Item ex:GAD7_Item_4 ;
+  ex:gad7ItemScore 1 .
+
+ex:GAD7_Response_P004_5 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P004 ;
+  ex:hasGAD7Item ex:GAD7_Item_5 ;
+  ex:gad7ItemScore 1 .
+
+ex:GAD7_Response_P004_6 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P004 ;
+  ex:hasGAD7Item ex:GAD7_Item_6 ;
+  ex:gad7ItemScore 1 .
+
+ex:GAD7_Response_P004_7 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P004 ;
+  ex:hasGAD7Item ex:GAD7_Item_7 ;
+  ex:gad7ItemScore 1 .
+
+ex:AH_P004_001 a ex:Adaptation_History, owl:NamedIndividual ;
+  ex:associatedWith ex:Session_S004 ;
+  ex:changeTimestamp "2026-02-04T10:02:20"^^xsd:dateTime ;
+  ex:logsChange ex:Param_trigger_intensity ;
+  ex:oldValue "2" ;
+  ex:newValue "3" .
+
+ex:SD_P004_PostSessionSurvey a ex:Survey_Data, owl:NamedIndividual ;
+  ex:pqTotalScore "3.4"^^xsd:float ;
+  ex:ssqTotalScore "14.0"^^xsd:float ;
+  ex:collectedIn ex:Session_S004 .
+
+ex:EV_P004_001_StageChange_1_2 a ex:Stage_Change_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S004 ;
+  ex:eventInStage ex:Stage1_Baseline ;
+  ex:fromStage ex:Stage1_Baseline ;
+  ex:toStage ex:Stage2_PrimaryTrigger_MinorUncertainty ;
+  ex:eventSeq 1 ;
+  ex:eventTimestamp "2026-02-04T10:01:00"^^xsd:dateTime ;
+  ex:eventType "stage_change"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"stage_change\",\"from\":\"Stage1_Baseline\",\"to\":\"Stage2_PrimaryTrigger_MinorUncertainty\"}"^^xsd:string .
+
+ex:EV_P004_002_TriggerShown_Uncertainty a ex:Trigger_Shown_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S004 ;
+  ex:eventInStage ex:Stage2_PrimaryTrigger_MinorUncertainty ;
+  ex:refersToTrigger ex:Uncertainty ;
+  ex:triggerId "TRG_UNC_04"^^xsd:string ;
+  ex:eventSeq 2 ;
+  ex:eventTimestamp "2026-02-04T10:02:15"^^xsd:dateTime ;
+  ex:eventType "trigger_shown"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"trigger_shown\",\"trigger\":\"Uncertainty\",\"triggerId\":\"TRG_UNC_04\"}"^^xsd:string .
+
+ex:EV_P004_003_SystemCommand_IntensityUp a ex:System_Command_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S004 ;
+  ex:eventInStage ex:Stage2_PrimaryTrigger_MinorUncertainty ;
+  ex:emitsCommand ex:CMD_001_SetTriggerIntensity ;
+  ex:eventSeq 3 ;
+  ex:eventTimestamp "2026-02-04T10:02:20"^^xsd:dateTime ;
+  ex:eventType "system_command"^^xsd:string .
+
+ex:EV_P004_004_ObjectInteraction_Choice a ex:Object_Interaction_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S004 ;
+  ex:eventInStage ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty ;
+  ex:refersToObject ex:OBJ_001_TaskCard ;
+  ex:objectId "OBJ_TASK_02"^^xsd:string ;
+  ex:interactionType "select_option"^^xsd:string ;
+  ex:eventSeq 4 ;
+  ex:eventTimestamp "2026-02-04T10:05:10"^^xsd:dateTime ;
+  ex:eventType "object_interaction"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"object_interaction\",\"objectId\":\"OBJ_TASK_02\",\"interactionType\":\"select_option\"}"^^xsd:string .
+
+ex:EV_P004_006_TextShown_Warning a ex:Text_Shown_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S004 ;
+  ex:eventInStage ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty ;
+  ex:eventSeq 5 ;
+  ex:eventTimestamp "2026-02-04T10:05:30"^^xsd:dateTime ;
+  ex:eventType "text_shown"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"text_shown\",\"text\":\"Devam etmek ister misiniz?\"}"^^xsd:string .
+
+ex:EV_P004_005_Safety_HR_Anomaly a ex:Safety_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S004 ;
+  ex:eventInStage ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty ;
+  ex:safetyReason "HR_above_threshold"^^xsd:string ;
+  ex:triggersIntervention ex:SI_001_BreathingScreen ;
+  ex:eventSeq 6 ;
+  ex:eventTimestamp "2026-02-04T10:06:00"^^xsd:dateTime ;
+  ex:eventType "safety_event"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"safety_event\",\"reason\":\"HR_above_threshold\",\"intervention\":\"breathing_screen\"}"^^xsd:string .
+
+ex:Session_S004 a ex:Therapy_Session, owl:NamedIndividual ;
+  ex:hasVREvent ex:EV_P004_001_StageChange_1_2, ex:EV_P004_002_TriggerShown_Uncertainty, ex:EV_P004_003_SystemCommand_IntensityUp, ex:EV_P004_004_ObjectInteraction_Choice, ex:EV_P004_006_TextShown_Warning, ex:EV_P004_005_Safety_HR_Anomaly ;
+  ex:hasSafetyIntervention ex:SI_001_BreathingScreen ;
+  ex:recordsResponse ex:GAD7_Response_P004_1, ex:GAD7_Response_P004_2, ex:GAD7_Response_P004_3, ex:GAD7_Response_P004_4, ex:GAD7_Response_P004_5, ex:GAD7_Response_P004_6, ex:GAD7_Response_P004_7, ex:SD_P004_PostSessionSurvey .
+
+ex:PR_P004_001 a ex:Prediction_Result, owl:NamedIndividual ;
+  ex:usedIn ex:Session_S004 ;
+  ex:predictedAnxietyLevel "Minimal"^^xsd:string ;
+  ex:predictionConfidence "0.74"^^xsd:float ;
+  ex:predictionTimestamp "2026-02-04T11:00:00"^^xsd:dateTime .
+
+ex:PD_P005_001 a ex:Physiological_Data, owl:NamedIndividual ;
+  ex:heartRateValue "79.0"^^xsd:float ;
+  ex:observationTimestamp "2026-02-05T10:00:30"^^xsd:dateTime .
+
+ex:PD_P005_002 a ex:Physiological_Data, ex:HighPhysiologicalArousal, owl:NamedIndividual ;
+  ex:heartRateValue "96.2"^^xsd:float ;
+  ex:observationTimestamp "2026-02-05T10:05:50"^^xsd:dateTime .
+
+ex:PD_P005_003 a ex:Physiological_Data, ex:HighPhysiologicalArousal, owl:NamedIndividual ;
+  ex:heartRateValue "155.0"^^xsd:float ;
+  ex:observationTimestamp "2026-02-05T10:06:10"^^xsd:dateTime .
+
+ex:Patient_P005 a ex:Patient, ex:SevereAnxiety, owl:NamedIndividual ;
+  ex:gad7TotalScore 15 ;
+  ex:GAD7Score "15.0"^^xsd:float ;
+  ex:baselineHeartRate "74.0"^^xsd:float ;
+  ex:safetyUpperHRLimit "150.0"^^xsd:float ;
+  ex:hasRiskLevel ex:RiskLevel_Severe ;
+  ex:hasPhysiologicalData ex:PD_P005_001, ex:PD_P005_002, ex:PD_P005_003 ;
+  ex:participatesIn ex:Session_S005 .
+
+ex:GAD7_Response_P005_1 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P005 ;
+  ex:hasGAD7Item ex:GAD7_Item_1 ;
+  ex:gad7ItemScore 2 .
+
+ex:GAD7_Response_P005_2 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P005 ;
+  ex:hasGAD7Item ex:GAD7_Item_2 ;
+  ex:gad7ItemScore 2 .
+
+ex:GAD7_Response_P005_3 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P005 ;
+  ex:hasGAD7Item ex:GAD7_Item_3 ;
+  ex:gad7ItemScore 2 .
+
+ex:GAD7_Response_P005_4 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P005 ;
+  ex:hasGAD7Item ex:GAD7_Item_4 ;
+  ex:gad7ItemScore 2 .
+
+ex:GAD7_Response_P005_5 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P005 ;
+  ex:hasGAD7Item ex:GAD7_Item_5 ;
+  ex:gad7ItemScore 2 .
+
+ex:GAD7_Response_P005_6 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P005 ;
+  ex:hasGAD7Item ex:GAD7_Item_6 ;
+  ex:gad7ItemScore 2 .
+
+ex:GAD7_Response_P005_7 a ex:GAD7_Response, ex:Response, owl:NamedIndividual ;
+  ex:hasResponder ex:Patient_P005 ;
+  ex:hasGAD7Item ex:GAD7_Item_7 ;
+  ex:gad7ItemScore 3 .
+
+ex:AH_P005_001 a ex:Adaptation_History, owl:NamedIndividual ;
+  ex:associatedWith ex:Session_S005 ;
+  ex:changeTimestamp "2026-02-05T10:02:20"^^xsd:dateTime ;
+  ex:logsChange ex:Param_trigger_intensity ;
+  ex:oldValue "2" ;
+  ex:newValue "3" .
+
+ex:SD_P005_PostSessionSurvey a ex:Survey_Data, owl:NamedIndividual ;
+  ex:pqTotalScore "3.5"^^xsd:float ;
+  ex:ssqTotalScore "15.0"^^xsd:float ;
+  ex:collectedIn ex:Session_S005 .
+
+ex:EV_P005_001_StageChange_1_2 a ex:Stage_Change_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S005 ;
+  ex:eventInStage ex:Stage1_Baseline ;
+  ex:fromStage ex:Stage1_Baseline ;
+  ex:toStage ex:Stage2_PrimaryTrigger_MinorUncertainty ;
+  ex:eventSeq 1 ;
+  ex:eventTimestamp "2026-02-05T10:01:00"^^xsd:dateTime ;
+  ex:eventType "stage_change"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"stage_change\",\"from\":\"Stage1_Baseline\",\"to\":\"Stage2_PrimaryTrigger_MinorUncertainty\"}"^^xsd:string .
+
+ex:EV_P005_002_TriggerShown_Uncertainty a ex:Trigger_Shown_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S005 ;
+  ex:eventInStage ex:Stage2_PrimaryTrigger_MinorUncertainty ;
+  ex:refersToTrigger ex:Uncertainty ;
+  ex:triggerId "TRG_UNC_05"^^xsd:string ;
+  ex:eventSeq 2 ;
+  ex:eventTimestamp "2026-02-05T10:02:15"^^xsd:dateTime ;
+  ex:eventType "trigger_shown"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"trigger_shown\",\"trigger\":\"Uncertainty\",\"triggerId\":\"TRG_UNC_05\"}"^^xsd:string .
+
+ex:EV_P005_003_SystemCommand_IntensityUp a ex:System_Command_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S005 ;
+  ex:eventInStage ex:Stage2_PrimaryTrigger_MinorUncertainty ;
+  ex:emitsCommand ex:CMD_001_SetTriggerIntensity ;
+  ex:eventSeq 3 ;
+  ex:eventTimestamp "2026-02-05T10:02:20"^^xsd:dateTime ;
+  ex:eventType "system_command"^^xsd:string .
+
+ex:EV_P005_004_ObjectInteraction_Choice a ex:Object_Interaction_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S005 ;
+  ex:eventInStage ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty ;
+  ex:refersToObject ex:OBJ_001_TaskCard ;
+  ex:objectId "OBJ_TASK_02"^^xsd:string ;
+  ex:interactionType "select_option"^^xsd:string ;
+  ex:eventSeq 4 ;
+  ex:eventTimestamp "2026-02-05T10:05:10"^^xsd:dateTime ;
+  ex:eventType "object_interaction"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"object_interaction\",\"objectId\":\"OBJ_TASK_02\",\"interactionType\":\"select_option\"}"^^xsd:string .
+
+ex:EV_P005_006_TextShown_Warning a ex:Text_Shown_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S005 ;
+  ex:eventInStage ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty ;
+  ex:eventSeq 5 ;
+  ex:eventTimestamp "2026-02-05T10:05:30"^^xsd:dateTime ;
+  ex:eventType "text_shown"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"text_shown\",\"text\":\"Devam etmek ister misiniz?\"}"^^xsd:string .
+
+ex:EV_P005_005_Safety_HR_Anomaly a ex:Safety_Event, owl:NamedIndividual ;
+  ex:eventInSession ex:Session_S005 ;
+  ex:eventInStage ex:Stage3_SecondaryTrigger_ResponsibilityUncertainty ;
+  ex:safetyReason "HR_above_threshold"^^xsd:string ;
+  ex:triggersIntervention ex:SI_001_BreathingScreen ;
+  ex:eventSeq 6 ;
+  ex:eventTimestamp "2026-02-05T10:06:00"^^xsd:dateTime ;
+  ex:eventType "safety_event"^^xsd:string ;
+  ex:eventPayloadJson "{\"event\":\"safety_event\",\"reason\":\"HR_above_threshold\",\"intervention\":\"breathing_screen\"}"^^xsd:string .
+
+ex:Session_S005 a ex:Therapy_Session, owl:NamedIndividual ;
+  ex:hasVREvent ex:EV_P005_001_StageChange_1_2, ex:EV_P005_002_TriggerShown_Uncertainty, ex:EV_P005_003_SystemCommand_IntensityUp, ex:EV_P005_004_ObjectInteraction_Choice, ex:EV_P005_006_TextShown_Warning, ex:EV_P005_005_Safety_HR_Anomaly ;
+  ex:hasSafetyIntervention ex:SI_001_BreathingScreen ;
+  ex:recordsResponse ex:GAD7_Response_P005_1, ex:GAD7_Response_P005_2, ex:GAD7_Response_P005_3, ex:GAD7_Response_P005_4, ex:GAD7_Response_P005_5, ex:GAD7_Response_P005_6, ex:GAD7_Response_P005_7, ex:SD_P005_PostSessionSurvey .
+
+ex:PR_P005_001 a ex:Prediction_Result, owl:NamedIndividual ;
+  ex:usedIn ex:Session_S005 ;
+  ex:predictedAnxietyLevel "Severe"^^xsd:string ;
+  ex:predictionConfidence "0.75"^^xsd:float ;
+  ex:predictionTimestamp "2026-02-05T11:00:00"^^xsd:dateTime .
+
+ex:AR_001 a ex:Analysis_Report, owl:NamedIndividual ;
+  ex:includesMethod ex:SM_001_Regression, ex:SM_002_DescriptiveStats ;
+  ex:reportGeneratedAt "2026-02-01T12:00:00"^^xsd:dateTime ;
+  ex:reportsOnSession ex:Session_S001, ex:Session_S002, ex:Session_S003, ex:Session_S004, ex:Session_S005 .
