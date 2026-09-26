@@ -1,0 +1,64 @@
+# ==========================================================================
+# AnxietyVRET v21.1 — boundary and negative-case test ABox
+# ==========================================================================
+# Load together with AnxietyVRET_v21_1.owl and AnxietyVRET_v21_1_abox.ttl,
+# run Pellet, then inspect the inferred types of the individuals below.
+# Observed results (Pellet, v21.1; knowledge base remains consistent):
+#
+#   Rule 1 (HR >= baselineHeartRate x 1.2)
+#     B70_below   HR 83.9, baseline 70   -> no inference
+#     B70_exact   HR 84.0, baseline 70   -> HighPhysiologicalArousal
+#     B70_above   HR 84.1, baseline 70   -> HighPhysiologicalArousal
+#     B75_exact   HR 90.0, baseline 75   -> HighPhysiologicalArousal
+#     B65_exact   HR 78.0, baseline 65   -> HighPhysiologicalArousal
+#   Rule 2 (HR >= safetyUpperHRLimit)
+#     U_below     HR 139.9, limit 140    -> no inference
+#     U_exact     HR 140.0, limit 140    -> HighPhysiologicalArousal
+#   Missing value
+#     B70_missing no heartRateValue      -> no inference, no inconsistency
+#   Rules 3-6 (GAD-7 cut-offs)
+#     G00, G04 -> MinimalAnxiety | G05, G09 -> MildAnxiety
+#     G10, G14 -> ModerateAnxiety | G15, G21 -> SevereAnxiety
+#     GNA (no score) -> no inference
+#   Event-level checks (SPARQL, closed-world)
+#     Session_N01: no Safety_Event       -> CQ28 returns 0 rows
+#     Session_X01: eventSeq order contradicts eventTimestamp order -> detected
+#     X01_s: Safety_Event without triggersIntervention            -> detected
+# The two event-level check queries are given at the end of cq_queries.rq.
+# ==========================================================================
+@prefix ex: <http://example.org/anxiety-vret#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+# --- HR boundary patients (Rule 1: baseline x 1.2; Rule 2: upper limit) ---
+ex:PT_B70 a ex:Patient, owl:NamedIndividual ; ex:baselineHeartRate "70.0"^^xsd:float ; ex:safetyUpperHRLimit "200.0"^^xsd:float ;
+  ex:hasPhysiologicalData ex:B70_below, ex:B70_exact, ex:B70_above, ex:B70_missing .
+ex:B70_below a ex:Physiological_Data ; ex:heartRateValue "83.9"^^xsd:float .
+ex:B70_exact a ex:Physiological_Data ; ex:heartRateValue "84.0"^^xsd:float .
+ex:B70_above a ex:Physiological_Data ; ex:heartRateValue "84.1"^^xsd:float .
+ex:B70_missing a ex:Physiological_Data .
+ex:PT_B75 a ex:Patient ; ex:baselineHeartRate "75.0"^^xsd:float ; ex:safetyUpperHRLimit "200.0"^^xsd:float ; ex:hasPhysiologicalData ex:B75_exact .
+ex:B75_exact a ex:Physiological_Data ; ex:heartRateValue "90.0"^^xsd:float .
+ex:PT_B65 a ex:Patient ; ex:baselineHeartRate "65.0"^^xsd:float ; ex:safetyUpperHRLimit "200.0"^^xsd:float ; ex:hasPhysiologicalData ex:B65_exact .
+ex:B65_exact a ex:Physiological_Data ; ex:heartRateValue "78.0"^^xsd:float .
+ex:PT_U a ex:Patient ; ex:baselineHeartRate "120.0"^^xsd:float ; ex:safetyUpperHRLimit "140.0"^^xsd:float ;
+  ex:hasPhysiologicalData ex:U_below, ex:U_exact .
+ex:U_below a ex:Physiological_Data ; ex:heartRateValue "139.9"^^xsd:float .
+ex:U_exact a ex:Physiological_Data ; ex:heartRateValue "140.0"^^xsd:float .
+# --- GAD-7 cut-off patients ---
+ex:G00 a ex:Patient ; ex:gad7TotalScore 0 .
+ex:G04 a ex:Patient ; ex:gad7TotalScore 4 .
+ex:G05 a ex:Patient ; ex:gad7TotalScore 5 .
+ex:G09 a ex:Patient ; ex:gad7TotalScore 9 .
+ex:G10 a ex:Patient ; ex:gad7TotalScore 10 .
+ex:G14 a ex:Patient ; ex:gad7TotalScore 14 .
+ex:G15 a ex:Patient ; ex:gad7TotalScore 15 .
+ex:G21 a ex:Patient ; ex:gad7TotalScore 21 .
+ex:GNA a ex:Patient .
+# --- Session without a safety event; session with inconsistent sequence; safety event without intervention ---
+ex:Session_N01 a ex:Therapy_Session ; ex:hasVREvent ex:N01_e1, ex:N01_e2 .
+ex:N01_e1 a ex:Stage_Change_Event ; ex:eventSeq 1 ; ex:eventTimestamp "2026-03-01T10:00:00"^^xsd:dateTime ; ex:fromStage ex:Stage1_Baseline ; ex:toStage ex:Stage2_PrimaryTrigger_MinorUncertainty .
+ex:N01_e2 a ex:Object_Interaction_Event ; ex:eventSeq 2 ; ex:eventTimestamp "2026-03-01T10:03:00"^^xsd:dateTime .
+ex:Session_X01 a ex:Therapy_Session ; ex:hasVREvent ex:X01_e1, ex:X01_e2, ex:X01_s .
+ex:X01_e1 a ex:Stage_Change_Event ; ex:eventSeq 1 ; ex:eventTimestamp "2026-03-02T10:05:00"^^xsd:dateTime .
+ex:X01_e2 a ex:Trigger_Shown_Event ; ex:eventSeq 2 ; ex:eventTimestamp "2026-03-02T10:01:00"^^xsd:dateTime .
+ex:X01_s a ex:Safety_Event ; ex:eventSeq 3 ; ex:eventTimestamp "2026-03-02T10:06:00"^^xsd:dateTime ; ex:safetyReason "HR_above_threshold" .

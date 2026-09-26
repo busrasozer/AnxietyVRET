@@ -1,0 +1,254 @@
+# ==========================================================================
+# AnxietyVRET v21.1 — SPARQL queries for Competency Questions CQ1–CQ29
+# ==========================================================================
+# Data:  AnxietyVRET_v21_1.owl (TBox + SWRL Rules 1–6)
+#        AnxietyVRET_v21_1_abox.ttl (synthetic proof-of-concept ABox)
+#
+# IMPORTANT: CQ1, CQ2, CQ5 and CQ6 depend on SWRL inferences. These class
+# memberships are NOT asserted in the ABox; run the reasoner (Pellet) first
+# and query the materialized (asserted + inferred) knowledge base.
+# In Protégé: Reasoner -> Pellet -> Start reasoner, then
+# File -> Export inferred axioms as ontology (tick class assertions),
+# open the exported file and run the queries in the SPARQL Query tab.
+#
+# Each block starts with "#@ CQn | expected result on the v21.1 ABox".
+# ==========================================================================
+
+
+#@ CQ1 | 5 patients, each with exactly one GAD-7 severity class
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?patient ?score ?severity WHERE {
+  ?patient a ex:Patient ; ex:gad7TotalScore ?score ; a ?severity .
+  VALUES ?severity { ex:MinimalAnxiety ex:MildAnxiety ex:ModerateAnxiety ex:SevereAnxiety }
+} ORDER BY ?score
+
+#@ CQ2 | patients inferred as SevereAnxiety (P002, P005)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?patient WHERE { ?patient a ex:Patient , ex:SevereAnxiety . } ORDER BY ?patient
+
+#@ CQ3 | 7 item responses per patient (35 in total) with item scores
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?patient ?item ?itemScore WHERE {
+  ?response a ex:GAD7_Response ; ex:hasResponder ?patient ;
+            ex:hasGAD7Item ?item ; ex:gad7ItemScore ?itemScore .
+} ORDER BY ?patient ?item
+
+#@ CQ4 | 3 physiological records per patient (15 in total)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?patient ?data ?hr WHERE {
+  ?patient ex:hasPhysiologicalData ?data . ?data ex:heartRateValue ?hr .
+} ORDER BY ?patient ?data
+
+#@ CQ5 | records inferred as HighPhysiologicalArousal with HR >= baseline x 1.2
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?patient ?data ?hr ?baseline WHERE {
+  ?patient ex:baselineHeartRate ?baseline ; ex:hasPhysiologicalData ?data .
+  ?data a ex:HighPhysiologicalArousal ; ex:heartRateValue ?hr .
+  FILTER (?hr >= ?baseline * 1.2)
+} ORDER BY ?patient ?data
+
+#@ CQ6 | records inferred as HighPhysiologicalArousal with HR >= safetyUpperHRLimit
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?patient ?data ?hr ?upper WHERE {
+  ?patient ex:safetyUpperHRLimit ?upper ; ex:hasPhysiologicalData ?data .
+  ?data a ex:HighPhysiologicalArousal ; ex:heartRateValue ?hr .
+  FILTER (?hr >= ?upper)
+} ORDER BY ?patient ?data
+
+#@ CQ7 | 6 stages of the scenario in hasStageOrder order
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?scenario ?stage ?order WHERE {
+  ?scenario a ex:VR_Scenario ; ex:hasStage ?stage .
+  OPTIONAL { ?stage ex:hasStageOrder ?order }
+} ORDER BY ?order
+
+#@ CQ8 | at least one stage-to-context link
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?stage ?context WHERE { ?stage ex:triggeredByContext ?context . } ORDER BY ?stage
+
+#@ CQ9 | behavioral context individuals
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?context WHERE { ?context a ex:Behavioral_Context . } ORDER BY ?context
+
+#@ CQ10 | parameter changes (oldValue -> newValue), one per session
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?history ?parameter ?oldValue ?newValue ?ts WHERE {
+  ?history a ex:Adaptation_History ; ex:logsChange ?parameter ;
+           ex:oldValue ?oldValue ; ex:newValue ?newValue .
+  OPTIONAL { ?history ex:changeTimestamp ?ts }
+} ORDER BY ?history
+
+#@ CQ11 | adaptation history records per session
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?session ?history WHERE {
+  ?history a ex:Adaptation_History ; ex:associatedWith ?session .
+} ORDER BY ?session
+
+#@ CQ12 | sessions with an applied safety intervention (5)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?session ?intervention WHERE {
+  ?session a ex:Therapy_Session ; ex:hasSafetyIntervention ?intervention .
+} ORDER BY ?session
+
+#@ CQ13 | safety intervention catalogue
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?intervention WHERE { ?intervention a ex:Safety_Intervention . }
+
+#@ CQ14 | alternative state -> safe exit protocol
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?state ?protocol WHERE {
+  ?state a ex:Alternative_State ; ex:triggersSafeExit ?protocol .
+}
+
+#@ CQ15 | patient-session links (5)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?patient ?session WHERE { ?patient a ex:Patient ; ex:participatesIn ?session . } ORDER BY ?patient
+
+#@ CQ16 | total number of sessions (5)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT (COUNT(DISTINCT ?session) AS ?nSessions) WHERE { ?session a ex:Therapy_Session . }
+
+#@ CQ17 | total number of patients (5)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT (COUNT(DISTINCT ?patient) AS ?nPatients) WHERE { ?patient a ex:Patient . }
+
+#@ CQ18 | ML_Algorithm subclasses (>= 4)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?algorithmClass WHERE { ?algorithmClass rdfs:subClassOf ex:ML_Algorithm . } ORDER BY ?algorithmClass
+
+#@ CQ19 | prediction results per session (5)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?session ?prediction ?level ?confidence WHERE {
+  ?prediction a ex:Prediction_Result ; ex:usedIn ?session .
+  OPTIONAL { ?prediction ex:predictedAnxietyLevel ?level }
+  OPTIONAL { ?prediction ex:predictionConfidence ?confidence }
+} ORDER BY ?session
+
+#@ CQ20 | algorithm individuals with performance metrics (>= 1)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?algorithm ?accuracy ?errorRate WHERE {
+  ?algorithm ex:Model_Accuracy ?accuracy .
+  OPTIONAL { ?algorithm ex:Prediction_Error_Rate ?errorRate }
+}
+
+#@ CQ21 | statistical methods included in analysis reports
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?report ?method ?methodName WHERE {
+  ?report a ex:Analysis_Report ; ex:includesMethod ?method .
+  OPTIONAL { ?method ex:methodName ?methodName }
+} ORDER BY ?method
+
+#@ CQ22 | event timeline of Session_S001 (6 events, ordered by eventSeq)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?event ?eventClass ?ts ?seq ?payload WHERE {
+  VALUES ?session { ex:Session_S001 }
+  ?session ex:hasVREvent ?event .
+  ?event a ?eventClass ; ex:eventTimestamp ?ts ; ex:eventSeq ?seq .
+  ?eventClass rdfs:subClassOf ex:VR_Event .
+  OPTIONAL { ?event ex:eventPayloadJson ?payload . }
+} ORDER BY ?seq
+
+#@ CQ23 | stage change events with from/to stages (5)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?session ?event ?from ?to ?ts WHERE {
+  ?session ex:hasVREvent ?event .
+  ?event a ex:Stage_Change_Event ; ex:fromStage ?from ; ex:toStage ?to ; ex:eventTimestamp ?ts .
+} ORDER BY ?session ?ts
+
+#@ CQ24 | trigger shown events and referenced scenario targets (5)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?session ?event ?target ?ts WHERE {
+  ?session ex:hasVREvent ?event .
+  ?event a ex:Trigger_Shown_Event ; ex:refersToTrigger ?target ; ex:eventTimestamp ?ts .
+} ORDER BY ?session ?ts
+
+#@ CQ25 | text shown events and captured content (5)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?session ?event ?payload ?ts WHERE {
+  ?session ex:hasVREvent ?event .
+  ?event a ex:Text_Shown_Event ; ex:eventPayloadJson ?payload ; ex:eventTimestamp ?ts .
+} ORDER BY ?session ?ts
+
+#@ CQ26 | object interaction events and referenced objects (5)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?session ?event ?object ?interactionType WHERE {
+  ?session ex:hasVREvent ?event .
+  ?event a ex:Object_Interaction_Event ; ex:refersToObject ?object .
+  OPTIONAL { ?event ex:interactionType ?interactionType }
+} ORDER BY ?session
+
+#@ CQ27 | system command events, command payload and linked parameter change (5)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?session ?event ?payload ?oldValue ?newValue WHERE {
+  ?session ex:hasVREvent ?event .
+  ?event a ex:System_Command_Event ; ex:emitsCommand ?command .
+  ?command ex:commandPayload ?payload .
+  OPTIONAL { ?history ex:associatedWith ?session ; ex:oldValue ?oldValue ; ex:newValue ?newValue . }
+} ORDER BY ?session
+
+#@ CQ28 | safety event of Session_S001 traced to its intervention (1)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?event ?reason ?intervention ?safeExit ?ts WHERE {
+  VALUES ?session { ex:Session_S001 }
+  ?session ex:hasVREvent ?event .
+  ?event a ex:Safety_Event ; ex:safetyReason ?reason ;
+         ex:triggersIntervention ?intervention ; ex:eventTimestamp ?ts .
+  OPTIONAL { ?event ex:triggersSafeExit ?safeExit . }
+} ORDER BY ?ts
+
+#@ CQ29 | post-session PQ/SSQ scores per session (5)
+PREFIX ex:   <http://example.org/anxiety-vret#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?session ?survey ?pq ?ssq WHERE {
+  ?survey a ex:Survey_Data ; ex:collectedIn ?session .
+  OPTIONAL { ?survey ex:pqTotalScore ?pq }
+  OPTIONAL { ?survey ex:ssqTotalScore ?ssq }
+} ORDER BY ?session
+
+# ==========================================================================
+# Integrity checks used with boundary_tests_abox.ttl (not competency questions)
+# ==========================================================================
+
+#@ CHECK-1 | events whose eventSeq order contradicts their eventTimestamp order
+PREFIX ex:   <http://example.org/anxiety-vret#>
+SELECT ?session ?earlierSeq ?laterSeq WHERE {
+  ?session ex:hasVREvent ?earlierSeq , ?laterSeq .
+  ?earlierSeq ex:eventSeq ?s1 ; ex:eventTimestamp ?t1 .
+  ?laterSeq   ex:eventSeq ?s2 ; ex:eventTimestamp ?t2 .
+  FILTER (?s1 < ?s2 && ?t1 > ?t2)
+}
+
+#@ CHECK-2 | Safety_Event individuals without a linked Safety_Intervention
+PREFIX ex:   <http://example.org/anxiety-vret#>
+SELECT ?event WHERE {
+  ?event a ex:Safety_Event .
+  FILTER NOT EXISTS { ?event ex:triggersIntervention ?intervention }
+}
