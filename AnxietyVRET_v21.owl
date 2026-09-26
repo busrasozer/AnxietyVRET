@@ -1,0 +1,1892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:ns1="http://example.org/anxiety-vret#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#emotionalIntensityScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>emotionalIntensityScore</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Prediction_Result"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7f700a1fc2524d87ac8eeefe7c6f4a8f">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThanOrEqual"/>
+    <swrl:arguments rdf:nodeID="Nd5f2a263f8db4715a09b5939595e1d46"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na2dad0f64b1b484089a81bbaee606001">
+    <rdf:first rdf:nodeID="Nead381d67ab941e3aebe942810fe7813"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6d3960d8f49943b2adc07a45df1067c5">
+    <rdf:first rdf:nodeID="N6668977dba2d45e78d11c6cde51d0356"/>
+    <rdf:rest rdf:nodeID="N515d5d6d495448e3bc3f1d823d23bec5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Scenario"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Scenario_Stage"/>
+    <rdfs:comment>Associates a VR scenario with its conditional stages.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Therapist">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Therapist</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#gsr_peak_count">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>gsr_peak_count</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Preprocessing_Features"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#eventInSession">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>eventInSession</rdfs:label>
+    <rdfs:comment>Inverse-style link from VR_Event to the session it occurred in.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Event"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Therapy_Session"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#recordsResponse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>recordsResponse</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Therapy_Session"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Response"/>
+    <rdfs:comment>Therapy session records subjective/objective responses.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#modelAccuracyThreshold">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>modelAccuracyThreshold</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Clinical reliability threshold (e.g., 0.8).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Room_Availability">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Room_Availability</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#EyeTracking_Sensor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>EyeTracking_Sensor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Wearable_Sensor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#GAD7_Scale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>GAD7_Scale</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Survey_Data"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Survey_Scale"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9582981133134321b96b0bb8330cb51b">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="http://example.org/anxiety-vret#hasRiskLevel"/>
+    <swrl:argument1 rdf:resource="urn:swrl#p"/>
+    <swrl:argument2 rdf:resource="http://example.org/anxiety-vret#ModerateRiskAnxiety_Level"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6710731f8f994861bafda053f6ebb823">
+    <rdf:first rdf:nodeID="N125d273efcee4866ab18f855b62cfaeb"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#fromStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>fromStage</rdfs:label>
+    <rdfs:comment>Origin stage for a Stage_Change_Event.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Stage_Change_Event"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Scenario_Stage"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#sudScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>sudScore</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#SubjectiveResponse"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Subjective Units of Distress (SUD) rating.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Active">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Status"/>
+    <rdfs:label>Active</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#participatesIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>participatesIn</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Therapy_Session"/>
+    <rdfs:comment>CQ1/CQ10</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#triggerId">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>triggerId</rdfs:label>
+    <rdfs:comment>Identifier for trigger presented.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Trigger_Shown_Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#volume_intensity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>volume_intensity</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Scenario"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Statistical_Method">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Statistical_Method</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#movement_speed">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>movement_speed</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Behavioral_Data"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#behaviorTimestamp">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>behaviorTimestamp</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Behavioral_Data"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#aboutPrediction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>aboutPrediction</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Alert"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Prediction_Result"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#baselineHeartRate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>baselineHeartRate</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Patient-specific resting heart rate (baseline) used for relative-threshold safety detection.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#analyzesDataFrom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>analyzesDataFrom</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Analysis_Report"/>
+    <rdfs:range rdf:nodeID="Nffa75d7cdb0a4467a7cd063bba3a53cd"/>
+    <rdfs:comment>Targets three data layers via unionOf; aligns with CQ6/CQ8.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#eventInStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>eventInStage</rdfs:label>
+    <rdfs:comment>Stage context in which the event occurred.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Event"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Scenario_Stage"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Confidence_Threshold">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>Confidence_Threshold</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Minimum confidence required for clinically reliable use of predictions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#gad7ItemScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#GAD7_Response"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8cdeda142c224478b4e4ec69075c71e6">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <swrl:classPredicate rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <swrl:argument1 rdf:resource="urn:swrl#p"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#observationTimestamp">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>observationTimestamp</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Physiological_Data"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Correlation_Analysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Statistical_Method"/>
+    <rdfs:label>Correlation_Analysis</rdfs:label>
+    <rdfs:comment>Used for CQ6 (physiology/behavior vs. GAD-7 correlation analysis).</rdfs:comment>
+    <ns1:methodName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Correlation</ns1:methodName>
+    <ns1:methodPurpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Assess linear association between variables</ns1:methodPurpose>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Stage5_RepetitionLoop">
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Scenario_Stage"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Stage_5_RepetitionLoop</rdfs:label>
+    <rdfs:comment>Repetitive cognitive loop; avoidance/withdrawal behaviors may occur (e.g., going to bathroom or kitchen) without providing relaxation instructions.</rdfs:comment>
+    <ns1:hasStageOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</ns1:hasStageOrder>
+    <ns1:triggeredByContext rdf:resource="http://example.org/anxiety-vret#Context_AmericanKitchen"/>
+    <ns1:triggeredByContext rdf:resource="http://example.org/anxiety-vret#Context_Bathroom"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#generates">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>generates</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Prediction_Result"/>
+    <owl:inverseOf rdf:resource="http://example.org/anxiety-vret#generatedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#fps">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>fps</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Performance_Metric"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasTrigger">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasTrigger</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Scenario"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Scenario_Target"/>
+    <rdfs:comment>CQ8</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#eventPayloadJson">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>eventPayloadJson</rdfs:label>
+    <rdfs:comment>Raw JSON payload string for forward compatibility.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#isVisualizedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>isVisualizedBy</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Scenario"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Wireframe_Component"/>
+    <rdfs:comment>Wireframe link; CQ9</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Scenario_Trigger">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Scenario_Trigger</rdfs:label>
+    <rdfs:comment>Alias for Scenario_Target (used to represent triggers such as Uncertainty, Time_Pressure, Unexpected_Event).</rdfs:comment>
+    <owl:equivalentClass rdf:resource="http://example.org/anxiety-vret#Scenario_Target"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#PQ_Scale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>PQ_Scale</rdfs:label>
+    <rdfs:comment>Presence Questionnaire (PQ) scale used post-session (optional).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Survey_Scale"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#scheduledAt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>scheduledAt</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Appointment"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#TimeSlot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#changeTimestamp">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>changeTimestamp</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Adaptation_History"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#SubjectiveResponse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>SubjectiveResponse</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Response"/>
+    <rdfs:comment>Subjective response (e.g., SUD score reported by participant).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb7d18e5659d3441184ff0f0b2ea9b106">
+    <rdf:first rdf:nodeID="N9582981133134321b96b0bb8330cb51b"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#slotStart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>slotStart</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#TimeSlot"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5a5fd68e467d481d89be898f6b4d99ea">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/anxiety-vret#logsChange"/>
+    <owl:onClass rdf:resource="http://example.org/anxiety-vret#Scenario_Parameter"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasAvailabilityStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasAvailabilityStatus</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Room_Availability"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Status"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#SSQ_Scale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>SSQ_Scale</rdfs:label>
+    <rdfs:comment>Simulator Sickness Questionnaire (SSQ) scale used post-session (optional).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Survey_Scale"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Stage1_Baseline">
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Scenario_Stage"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Stage_1_Baseline</rdfs:label>
+    <rdfs:comment>Baseline familiarization: neutral environment; used to observe baseline HR/HRV and exploration patterns.</rdfs:comment>
+    <ns1:hasStageOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns1:hasStageOrder>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#confidenceThreshold">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>confidenceThreshold</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nabc9b3b7771e4f2a8bde28583221c6f6">
+    <rdf:first rdf:resource="http://example.org/anxiety-vret#Behavioral_Data"/>
+    <rdf:rest rdf:nodeID="N09cce5384e46482fac13e341586aaf6f"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#refersToObject">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>refersToObject</rdfs:label>
+    <rdfs:comment>Scene object referenced by an Object_Interaction_Event.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Object_Interaction_Event"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Interactable_Object"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Object_Interaction_Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Object_Interaction_Event</rdfs:label>
+    <rdfs:comment>Event representing interaction with an in-scene object (grab, click, gaze, etc.).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#VR_Event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#usesPrediction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>usesPrediction</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Therapy_Session"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Prediction_Result"/>
+    <owl:inverseOf rdf:resource="http://example.org/anxiety-vret#usedIn"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#isAvailableDuring">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>isAvailableDuring</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Room"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#TimeSlot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#LowRiskAnxiety">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>LowRiskAnxiety</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Anxiety_Profile"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Risk_Level"/>
+    <rdfs:comment>Represents low risk anxiety level derived from clinical cut-offs.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#ssqTotalScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>ssqTotalScore</rdfs:label>
+    <rdfs:comment>SSQ total score (optional).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Survey_Data"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#associatedWith">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>associatedWith</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Adaptation_History"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Therapy_Session"/>
+    <rdfs:comment>CQ7, CQ10</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Access_Control">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Access_Control</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N09cce5384e46482fac13e341586aaf6f">
+    <rdf:first rdf:resource="http://example.org/anxiety-vret#Survey_Data"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nba04d3eea32647208564db8cbb343b14">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/anxiety-vret#usedIn"/>
+    <owl:onClass rdf:resource="http://example.org/anxiety-vret#Therapy_Session"/>
+    <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#derivedFrom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>derivedFrom</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Preprocessing_Feature"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment>Intended targets: Physiological_Data or Behavioral_Data.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Stage3_SecondaryTrigger_ResponsibilityUncertainty">
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Scenario_Stage"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Stage_3_SecondaryTrigger_ResponsibilityUncertainty</rdfs:label>
+    <rdfs:comment>Secondary trigger activated if participant enters bedroom: unread emails presented without readable content to evoke responsibility uncertainty.</rdfs:comment>
+    <ns1:hasStageOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</ns1:hasStageOrder>
+    <ns1:triggeredByContext rdf:resource="http://example.org/anxiety-vret#Context_Bedroom"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Wearable_Sensor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Wearable_Sensor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Device"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na7e1d12f000a4b7bb52e0a3e12daef20">
+    <rdf:first rdf:resource="urn:swrl#s"/>
+    <rdf:rest rdf:nodeID="Na49024ab194a44dca5cfb97c18e927c1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#therapy_progress_pct">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>therapy_progress_pct</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc126af525a54412f9f3f30a1675c9e92">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="http://example.org/anxiety-vret#baselineHeartRate"/>
+    <swrl:argument1 rdf:resource="urn:swrl#p"/>
+    <swrl:argument2 rdf:resource="urn:swrl#b"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Rule_HR_RelativeIncrease_HighArousal">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label>Rule_HR_RelativeIncrease_HighArousal</rdfs:label>
+    <rdfs:comment>If heartRateValue &gt;= baselineHeartRate * 1.2 then Physiological_Data is classified as HighPhysiologicalArousal.</rdfs:comment>
+    <swrl:body rdf:nodeID="N72d50317062b4b06855e10d2a12c9dc9"/>
+    <swrl:head rdf:nodeID="N2cc280b088b142e6b4197524c59bbb97"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasStageOrder">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>hasStageOrder</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Scenario_Stage"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>Optional ordering for documentation; stages are conditional/spatial and not strictly linear.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#visualizes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>visualizes</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Use_Case"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Alternative_State"/>
+    <rdfs:comment>CQ15</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Logistic_Regression">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Logistic_Regression</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#heart_rate_variance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>heart_rate_variance</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Preprocessing_Features"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#usedAsInputTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>usedAsInputTo</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Preprocessing_Feature"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:swrl#s">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Context_LivingRoom">
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Behavioral_Context"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>LivingRoom</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#basedOn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>basedOn</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Adaptation_History"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Prediction_Result"/>
+    <rdfs:comment>Adaptation justified by a specific prediction result.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Detailed_Session_Report">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Detailed_Session_Report</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Reporting_Feedback"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Safety_Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Safety_Event</rdfs:label>
+    <rdfs:comment>Event representing safety-related occurrence (panic, abort, safe-exit trigger).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#VR_Event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Stage4_CognitiveLoad">
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Scenario_Stage"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Stage_4_CognitiveLoad</rdfs:label>
+    <rdfs:comment>No new stimulus; cognitive load increases via repetition of existing triggers (mental busy-ness characteristic of GAD).</rdfs:comment>
+    <ns1:hasStageOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ns1:hasStageOrder>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Performance_Metric">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Performance_Metric</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#voice_pitch_variance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>voice_pitch_variance</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Behavioral_Data"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc888879bc7d54a4a9bccb8f815183199">
+    <rdf:first rdf:resource="http://example.org/anxiety-vret#Physiological_Data"/>
+    <rdf:rest rdf:nodeID="Nabc9b3b7771e4f2a8bde28583221c6f6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasRoom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasRoom</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Appointment"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Room"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Time_Pressure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Scenario_Target"/>
+    <rdfs:label>Time_Pressure</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Stage_1_Baseline">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Stage_1_Baseline</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#VR_Scenario"/>
+    <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    <rdfs:comment>Deprecated in v21: use 6 stage individuals (Stage1_... Stage6_...) of class Scenario_Stage.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd48bb6f9861348d58b5063434176f07f">
+    <rdf:first rdf:resource="http://example.org/anxiety-vret#Scenario_Adaptation_Module"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nead381d67ab941e3aebe942810fe7813">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="http://example.org/anxiety-vret#hasRiskLevel"/>
+    <swrl:argument1 rdf:resource="urn:swrl#p"/>
+    <swrl:argument2 rdf:resource="http://example.org/anxiety-vret#HighRiskAnxiety_Level"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#STAI_Scale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>STAI_Scale</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Survey_Data"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#overseenBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>overseenBy</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Therapy_Session"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Therapist"/>
+    <rdfs:comment>CQ10</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Safety_Intervention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Safety_Intervention</rdfs:label>
+    <rdfs:comment>Ethical and clinical safety actions triggered independently from exposure therapy.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#MildAnxiety">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Risk_Level"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Scenario_Stage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Scenario_Stage</rdfs:label>
+    <rdfs:comment>Conditional and spatial stages of the VR exposure scenario; stages are not linear and are triggered by context.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Completed">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Status"/>
+    <rdfs:label>Completed</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#performanceIssueFlag">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>performanceIssueFlag</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Performance_Metric"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Teleport_Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Teleport_Event</rdfs:label>
+    <rdfs:comment>Event representing teleportation / locomotion action.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#VR_Event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Regression_Analysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Statistical_Method"/>
+    <rdfs:label>Regression_Analysis</rdfs:label>
+    <ns1:methodName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Regression</ns1:methodName>
+    <ns1:methodPurpose rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Model relationship between predictors and outcomes</ns1:methodPurpose>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#reportsOn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>reportsOn</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Reporting_Feedback"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Therapy_Session"/>
+    <rdfs:comment>CQ10–12</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Rule_HR_UpperLimit_HighArousal">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label>Rule_HR_UpperLimit_HighArousal</rdfs:label>
+    <rdfs:comment>If heartRateValue &gt;= safetyUpperHRLimit then Physiological_Data is classified as HighPhysiologicalArousal.</rdfs:comment>
+    <swrl:body rdf:nodeID="Nf5eaf725a6ff4baaa21fb737337a6079"/>
+    <swrl:head rdf:nodeID="N24d452b4004746dfa40c2bcdac2b02af"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Rule_GAD7_HighRisk">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label>Rule_GAD7_HighRisk</rdfs:label>
+    <rdfs:comment>Patient has GAD7Score &gt;= 15 -&gt; hasRiskLevel HighRiskAnxiety.</rdfs:comment>
+    <swrl:body rdf:nodeID="N8c65c5ed072647b79261088429b11cb7"/>
+    <swrl:head rdf:nodeID="Na2dad0f64b1b484089a81bbaee606001"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Status">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Status</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Rule_GAD7_ModerateRisk">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label>Rule_GAD7_ModerateRisk</rdfs:label>
+    <rdfs:comment>Patient has GAD7Score in [10,15) -&gt; hasRiskLevel ModerateRiskAnxiety.</rdfs:comment>
+    <swrl:body rdf:nodeID="Nbc334f08ec804d9b967a63f6f702b374"/>
+    <swrl:head rdf:nodeID="Nb7d18e5659d3441184ff0f0b2ea9b106"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N65bf852a412b4c19948abfed19112691">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="http://example.org/anxiety-vret#GAD7Score"/>
+    <swrl:argument1 rdf:resource="urn:swrl#p"/>
+    <swrl:argument2 rdf:resource="urn:swrl#s"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#HMD_Device">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>HMD_Device</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Device"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#HighPhysiologicalArousal">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>HighPhysiologicalArousal</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Physiological_Data"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#usesFeature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>usesFeature</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Preprocessing_Features"/>
+    <rdfs:comment>CQ3–5</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#methodName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>methodName</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Statistical_Method"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasVREvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasVREvent</rdfs:label>
+    <rdfs:comment>Links a Therapy_Session to VR_Event entries.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Therapy_Session"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#VR_Event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#usesPseudonymization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>usesPseudonymization</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Reporting_Feedback"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Pseudonymization"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2ce06737648144878af21ac471d2aa21">
+    <rdf:first rdf:resource="urn:swrl#s"/>
+    <rdf:rest rdf:nodeID="Na7b9d9e5a2114c2a82ac4f9a735a6afd"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#VR_Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>VR_Event</rdfs:label>
+    <rdfs:comment>Atomic event log entry (JSONL) generated during a VR therapy session.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#VR_Experience_Scale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>VR_Experience_Scale</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Survey_Data"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#emitsCommand">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>emitsCommand</rdfs:label>
+    <rdfs:comment>System command associated with a System_Command_Event.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#System_Command_Event"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#System_Command"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Preprocessing_Module">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Preprocessing_Module</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Application_Module"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#dataQualityFlag">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>dataQualityFlag</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Physiological_Data"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Stage2_PrimaryTrigger_MinorUncertainty">
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Scenario_Stage"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Stage_2_PrimaryTrigger_MinorUncertainty</rdfs:label>
+    <rdfs:comment>Primary trigger in living room (e.g., clock tick-tock / subtle TV subtitles) to initiate mild uncertainty exposure.</rdfs:comment>
+    <ns1:hasStageOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</ns1:hasStageOrder>
+    <ns1:triggeredByContext rdf:resource="http://example.org/anxiety-vret#Context_LivingRoom"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Patient">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Patient</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#slotEnd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>slotEnd</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#TimeSlot"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#fixationDurationValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>fixationDurationValue</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Behavioral_Data"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Stage_2_Uncertainty_Transition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Stage_2_Uncertainty_Transition</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#VR_Scenario"/>
+    <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    <rdfs:comment>Deprecated in v21: use 6 stage individuals (Stage1_... Stage6_...) of class Scenario_Stage.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#GAD7Score">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>GAD7Score</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>CQ1 — Cutoffs: 5 mild, 10 moderate, 15 severe (clinical reference).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasMoSCoWPriority">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>hasMoSCoWPriority</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Use on VR_Application and Application_Module instances: Must/Should/Could/Won't.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N01b52f46724a45928ed39b99be4fd69a">
+    <rdf:first rdf:resource="urn:swrl#s"/>
+    <rdf:rest rdf:nodeID="N3f42adfe513e44f08322d63eb08a749b"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasSensoryPhysiologicalCorrelation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasSensoryPhysiologicalCorrelation</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Scenario"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Preprocessing_Features"/>
+    <rdfs:comment>Links scenario sensory parameters (e.g., fog_density) to derived physiological features (e.g., gsr_peak_count) for CQ8 analyses.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#eventType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>eventType</rdfs:label>
+    <rdfs:comment>String tag for event type when class hierarchy is not sufficient.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#HighRiskAnxiety">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>HighRiskAnxiety</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Anxiety_Profile"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Risk_Level"/>
+    <rdfs:comment>Represents high risk anxiety level derived from clinical cut-offs.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Context_Bathroom">
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Behavioral_Context"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Bathroom</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Rule_GAD7_LowRisk">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label>Rule_GAD7_LowRisk</rdfs:label>
+    <rdfs:comment>Patient has GAD7Score &lt; 10 -&gt; hasRiskLevel LowRiskAnxiety.</rdfs:comment>
+    <swrl:body rdf:nodeID="N5cd2dd9cb3b8408d84ed0a92c1410b92"/>
+    <swrl:head rdf:nodeID="Nc644e2ce71bc40cb93157a102b2bd94c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6668977dba2d45e78d11c6cde51d0356">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#multiply"/>
+    <swrl:arguments rdf:nodeID="N5e88f0ff4a694d6a8c8a579fdbb6f8bd"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#includesMethod">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>includesMethod</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Analysis_Report"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Statistical_Method"/>
+    <rdfs:comment>CQ6, CQ12</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#predictionConfidence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>predictionConfidence</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Prediction_Result"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#triggersSafeExit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>triggersSafeExit</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Alternative_State"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Safe_Exit_Protocol"/>
+    <rdfs:comment>CQ15</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#System_Command_Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>System_Command_Event</rdfs:label>
+    <rdfs:comment>Event representing a system-issued command (adaptation decision, parameter change request, etc.).</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#VR_Event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasGAD7Item">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#GAD7_Response"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#GAD7_Item"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfe98ec948fe0422fbd9f1ee5ecd07b9b">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="http://example.org/anxiety-vret#hasRiskLevel"/>
+    <swrl:argument1 rdf:resource="urn:swrl#p"/>
+    <swrl:argument2 rdf:resource="http://example.org/anxiety-vret#LowRiskAnxiety_Level"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#LSTM_Model">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>LSTM_Model</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Safe_Exit_Protocol">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Safe_Exit_Protocol</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Preprocessing_Features">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Preprocessing_Features</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasModule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasModule</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Application"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Application_Module"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#commandName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>commandName</rdfs:label>
+    <rdfs:comment>Name of system command.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#System_Command"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#trigger_intensity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>trigger_intensity</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Scenario"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Data_Integrity_Requirement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Data_Integrity_Requirement</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Feedback_Module">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Feedback_Module</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Application_Module"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#difficulty_level">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>difficulty_level</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Scenario"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7b7abe60d73f41e89bbc8e7970bf54e7">
+    <rdf:first rdf:nodeID="N9811b0d8262b448a81da3128bbfeb68f"/>
+    <rdf:rest rdf:nodeID="Nd04ee470e1f24e3491f8d42f9bd7ef0f"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#logsChange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>logsChange</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Adaptation_History"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Scenario_Parameter"/>
+    <rdfs:comment>Real-time scenario adjustments; CQ7</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#methodPurpose">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>methodPurpose</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Statistical_Method"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Stage_Change_Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Stage_Change_Event</rdfs:label>
+    <rdfs:comment>Event representing transition between scenario stages.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#VR_Event"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#toStage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>toStage</rdfs:label>
+    <rdfs:comment>Destination stage for a Stage_Change_Event.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Stage_Change_Event"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Scenario_Stage"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#appointmentForSession">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>appointmentForSession</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Appointment"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#TherapeuticSession"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasTreatmentProgress">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Treatment_Progress"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Alternative_State">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Alternative_State</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#collectedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>collectedIn</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Therapy_Session"/>
+    <rdfs:comment>Intended for Physiological_Data, Behavioral_Data, Survey_Data; CQ2</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Support_Vector_Machines">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Support_Vector_Machines</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Physiological_Data">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Physiological_Data</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#predictedAnxietyLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>predictedAnxietyLevel</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Prediction_Result"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Survey_Scale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Survey_Scale</rdfs:label>
+    <rdfs:comment>Superclass for psychometric instruments (e.g., GAD7, STAI, VR Experience).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Behavioral_Context">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Behavioral_Context</rdfs:label>
+    <rdfs:comment>Spatial contexts (e.g., bathroom, kitchen) used to observe avoidance or spontaneous regulation; not a therapeutic stage.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#ML_Module">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>ML_Module</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Application_Module"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Wireframe_Component">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Wireframe_Component</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#SevereAnxiety">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Risk_Level"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N55f093c604ab4911bef988b5ac77bf25">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThanOrEqual"/>
+    <swrl:arguments rdf:nodeID="N2ce06737648144878af21ac471d2aa21"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#participant_id">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>participant_id</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9acfd08675ac4b3cba3b4ccb4465ef88">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="http://example.org/anxiety-vret#hasPhysiologicalData"/>
+    <swrl:argument1 rdf:resource="urn:swrl#p"/>
+    <swrl:argument2 rdf:resource="urn:swrl#d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasResponder">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasResponder</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Response"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:comment>Associates a response with the patient who reported or exhibited it.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#sound_level">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>sound_level</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Scenario"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#refersToTrigger">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>refersToTrigger</rdfs:label>
+    <rdfs:comment>Trigger/stimulus referenced by a Trigger_Shown_Event.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Trigger_Shown_Event"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Scenario_Target"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Consent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Consent</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#commandPayload">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>commandPayload</rdfs:label>
+    <rdfs:comment>Serialized parameters for system command.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#System_Command"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#safetyReason">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>safetyReason</rdfs:label>
+    <rdfs:comment>Reason string for safety event.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Safety_Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#System_Command">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>System_Command</rdfs:label>
+    <rdfs:comment>A command produced by the system (e.g., adjust stimulus intensity, end session).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#deliveredToTherapist">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>deliveredToTherapist</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Reporting_Feedback"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Therapist"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Application_Module">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Application_Module</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#t_test">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Statistical_Method"/>
+    <rdfs:label>t_test</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Analysis_Report">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Analysis_Report</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Survey_Data">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Survey_Data</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5e88f0ff4a694d6a8c8a579fdbb6f8bd">
+    <rdf:first rdf:resource="urn:swrl#thr"/>
+    <rdf:rest rdf:nodeID="N304e72bf7c4e421ab60cf72e5c8c15c8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#safetyUpperHRLimit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>safetyUpperHRLimit</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Patient-specific upper heart-rate safety limit; can be derived externally (e.g., age-based max HR * 0.8) or set clinically.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#cognitiveLoadScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>cognitiveLoadScore</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Prediction_Result"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N911e9e412fc9423185eeb29321064a7a">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <swrl:classPredicate rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <swrl:argument1 rdf:resource="urn:swrl#p"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#enforcedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>enforcedBy</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Access_Control"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#IT_Specialist"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#includesPerformanceMetric">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>includesPerformanceMetric</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#System_Health_Report"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Performance_Metric"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#alertsTherapist">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>alertsTherapist</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Alert"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Therapist"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Software_Engine">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Software_Engine</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Trigger_Shown_Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Trigger_Shown_Event</rdfs:label>
+    <rdfs:comment>Event representing the presentation of a scenario trigger or stimulus cue.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#VR_Event"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc9983590821f458f835830f421eb5305">
+    <rdf:first rdf:resource="http://example.org/anxiety-vret#Behavioral_Data"/>
+    <rdf:rest rdf:nodeID="N84adaace141546c7b999d5d69fc87ee3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd5f2a263f8db4715a09b5939595e1d46">
+    <rdf:first rdf:resource="urn:swrl#hr"/>
+    <rdf:rest rdf:nodeID="N0f1a17a67ac54819aaf17cddcc72c5fb"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3f42adfe513e44f08322d63eb08a749b">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#pqTotalScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>pqTotalScore</rdfs:label>
+    <rdfs:comment>PQ total score (optional).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Survey_Data"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Uncertainty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Scenario_Target"/>
+    <rdfs:label>Uncertainty</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasRiskLevel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasRiskLevel</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Risk_Level"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N72d50317062b4b06855e10d2a12c9dc9">
+    <rdf:first rdf:nodeID="N8cdeda142c224478b4e4ec69075c71e6"/>
+    <rdf:rest rdf:nodeID="Nc4a254f2ad704cd9aae04903c60dfdf0"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#eventSeq">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>eventSeq</rdfs:label>
+    <rdfs:comment>Monotonic sequence number within session.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#brightness_level">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>brightness_level</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Scenario"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#appliedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>appliedIn</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Statistical_Method"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Analysis_Report"/>
+    <rdfs:comment>CQ6, CQ12</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasSafetyIntervention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Therapy_Session"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Safety_Intervention"/>
+    <rdfs:comment>Links a therapy session to safety interventions executed independently from exposure.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label>AnxietyVRET_v21</rdfs:label>
+    <owl:versionInfo>v21</owl:versionInfo>
+    <rdfs:comment>v21 — Aligned with thesis v21: fixed namespace inconsistencies; consolidated 6-stage model as individuals; added VR_Event vocabulary for JSONL event logging (stage_change, trigger_shown, text_shown, object_interaction, system_command, safety_event); clarified optional survey scales (PQ, SSQ).</rdfs:comment>
+    <owl:versionIRI rdf:resource="http://example.org/anxiety-vret/v21"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Adaptation_History">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Adaptation_History</rdfs:label>
+    <rdfs:subClassOf rdf:nodeID="N5a5fd68e467d481d89be898f6b4d99ea"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Lab_Room">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Lab_Room</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Room"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#usedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>usedIn</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Prediction_Result"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Therapy_Session"/>
+    <rdfs:comment>CQ4–5</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb19e771b9bae40dea76c58f7033272fc">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="http://example.org/anxiety-vret#hasPhysiologicalData"/>
+    <swrl:argument1 rdf:resource="urn:swrl#p"/>
+    <swrl:argument2 rdf:resource="urn:swrl#d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#System_Health_Report">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>System_Health_Report</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Reporting_Feedback"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#triggeredByContext">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Scenario_Stage"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Behavioral_Context"/>
+    <rdfs:comment>Indicates that a stage becomes active based on spatial/behavioral context.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Scenario_Adaptation_Module">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Scenario_Adaptation_Module</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Application_Module"/>
+    <ns1:clinicalNote>
+      Adaptation adjusts stimulus intensity without providing relaxation, emotion regulation, or anxiety-reducing instructions.
+    </ns1:clinicalNote>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N97e7183717de4ce2a2a0bb3fab1bd114">
+    <rdf:first rdf:nodeID="Nfcb739e895a74035bbd20e4e70c6ec55"/>
+    <rdf:rest rdf:nodeID="N28c1cf4d5f034c1ebdd8d8b861b4bc40"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#VR_Scenario">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>VR_Scenario</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Naf69ddc713654f55b5981ed8a1a974fb">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+    <swrl:arguments rdf:nodeID="Ne069359565314508a505556702da8f17"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd812760d23a044e2aae3821ce06538e3">
+    <rdf:first rdf:nodeID="N7f700a1fc2524d87ac8eeefe7c6f4a8f"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#interactionType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>interactionType</rdfs:label>
+    <rdfs:comment>Interaction type (grab/click/gaze/hover/etc.).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Object_Interaction_Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Stage_3_Core_Experience">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Stage_3_Core_Experience</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#VR_Scenario"/>
+    <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+    <rdfs:comment>Deprecated in v21: use 6 stage individuals (Stage1_... Stage6_...) of class Scenario_Stage.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N823aa3ccafa24fb19032aa9b279a1f7c">
+    <rdf:first rdf:nodeID="Naf69ddc713654f55b5981ed8a1a974fb"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#ObjectiveResponse">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>ObjectiveResponse</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Response"/>
+    <rdfs:comment>Objective response (e.g., physiological/behavioral sensor measures).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2ce0830bb0d34d948d5215e1efb0c337">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="N9cda8d287cbc48828d90b66d166f7a7b"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#predictionProbability">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>predictionProbability</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Prediction_Result"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#clinicalNote">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#ANOVA">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Statistical_Method"/>
+    <rdfs:label>ANOVA</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Treatment_Progress">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Treatment_Progress</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne6d0849e296a4c329a58dafefb8ae14f">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <swrl:classPredicate rdf:resource="http://example.org/anxiety-vret#HighPhysiologicalArousal"/>
+    <swrl:argument1 rdf:resource="urn:swrl#d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasConsent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasConsent</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Consent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#VR_Application">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>VR_Application</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf07bdc5e3cbd4128bff5f9415253b70e">
+    <rdf:first rdf:nodeID="Nc126af525a54412f9f3f30a1675c9e92"/>
+    <rdf:rest rdf:nodeID="N1180a83bc0544e33a031571b189face3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#collectedFrom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>collectedFrom</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:comment>Intended for Physiological_Data, Behavioral_Data, Survey_Data; CQ1–3</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#heartRateValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>heartRateValue</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Physiological_Data"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf266be6737fb48a3aaabb6bdcabbd13e">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <swrl:classPredicate rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <swrl:argument1 rdf:resource="urn:swrl#p"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb6b5c58d352a4bfa86cca63ac9710137">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <swrl:classPredicate rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <swrl:argument1 rdf:resource="urn:swrl#p"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#MinimalAnxiety">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Risk_Level"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9cda8d287cbc48828d90b66d166f7a7b">
+    <rdf:first rdf:resource="http://example.org/anxiety-vret#Physiological_Data"/>
+    <rdf:rest rdf:nodeID="Nc9983590821f458f835830f421eb5305"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Room">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Room</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Text_Shown_Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Text_Shown_Event</rdfs:label>
+    <rdfs:comment>Event representing on-screen text shown to participant.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#VR_Event"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfcb739e895a74035bbd20e4e70c6ec55">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="http://example.org/anxiety-vret#safetyUpperHRLimit"/>
+    <swrl:argument1 rdf:resource="urn:swrl#p"/>
+    <swrl:argument2 rdf:resource="urn:swrl#u"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6254d87e6c58434d99f44c418c9170a8">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="http://example.org/anxiety-vret#heartRateValue"/>
+    <swrl:argument1 rdf:resource="urn:swrl#d"/>
+    <swrl:argument2 rdf:resource="urn:swrl#hr"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#VR_Controller">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>VR_Controller</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Device"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Cancelled">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Status"/>
+    <rdfs:label>Cancelled</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbc334f08ec804d9b967a63f6f702b374">
+    <rdf:first rdf:nodeID="N911e9e412fc9423185eeb29321064a7a"/>
+    <rdf:rest rdf:nodeID="N7b7abe60d73f41e89bbc8e7970bf54e7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#gsrValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>gsrValue</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Physiological_Data"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Neural_Network">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Neural_Network</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Biofeedback_Sensor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Biofeedback_Sensor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Device"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Alert">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Alert</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Reporting_Feedback"/>
+    <rdfs:comment>Feedback type used when confidence/quality drops below threshold; supports CQ5.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Polynomial_Regression">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Polynomial_Regression</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#age">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>age</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Improving">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Improving</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Treatment_Progress"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#overridesAdaptation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Manual_Override"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Scenario_Adaptation_Module"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Therapy_Session">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Therapy_Session</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N907110a2060d475eb9cb1904c4a46ac6">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThanOrEqual"/>
+    <swrl:arguments rdf:nodeID="Nd5d8d5f1ed734c2aab3218612e4e6b03"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb98d3b630b314859a0a62360fe3d51ca">
+    <rdf:first rdf:nodeID="N9acfd08675ac4b3cba3b4ccb4465ef88"/>
+    <rdf:rest rdf:nodeID="N97e7183717de4ce2a2a0bb3fab1bd114"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N84adaace141546c7b999d5d69fc87ee3">
+    <rdf:first rdf:resource="http://example.org/anxiety-vret#Survey_Data"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc2bb01bea7454276ad2c263ff54cd7ba">
+    <rdf:first rdf:nodeID="N65bf852a412b4c19948abfed19112691"/>
+    <rdf:rest rdf:nodeID="N088ec553905d478987e188c90e67ee8e"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1cde54bd4542408a8246fba507a1b257">
+    <rdf:first rdf:resource="urn:swrl#thr"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9652571e57604207ac43dea8f62fa00d">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <swrl:classPredicate rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <swrl:argument1 rdf:resource="urn:swrl#p"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#supportsIntegrity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>supportsIntegrity</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Reporting_Feedback"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Data_Integrity_Requirement"/>
+    <rdfs:comment>CQ13–14</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#IT_Specialist">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>IT_Specialist</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Trend_Analysis_Report">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Trend_Analysis_Report</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Reporting_Feedback"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Prediction_Error_Rate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>Prediction_Error_Rate</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Preprocessing_Feature">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Preprocessing_Feature</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Context_Bedroom">
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Behavioral_Context"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Bedroom</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Device">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Device</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#gad7TotalScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Model_Accuracy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>Model_Accuracy</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#latencyMs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>latencyMs</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Performance_Metric"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Manual_Override">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Manual_Override</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#GAD7_Response">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#availabilityForRoom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>availabilityForRoom</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Room_Availability"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Room"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#userSatisfactionScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>userSatisfactionScore</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Detailed_Session_Report"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Scenario_Parameter">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Scenario_Parameter</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasClinicalThreshold">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>hasClinicalThreshold</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Survey_Data"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Encodes cut-off category labels for survey scores (e.g., LowRiskAnxiety, MildRiskAnxiety, HighRiskAnxiety). For formal validation, use SHACL or SWRL rules.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Pseudonymization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Pseudonymization</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N28c1cf4d5f034c1ebdd8d8b861b4bc40">
+    <rdf:first rdf:nodeID="N6937f3eb8e2f4aaca037d46a10715639"/>
+    <rdf:rest rdf:nodeID="Nd812760d23a044e2aae3821ce06538e3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Appointment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Appointment</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Data_Privacy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Data_Privacy</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Behavioral_Data">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Behavioral_Data</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Stage6_PartialResolution">
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Scenario_Stage"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>Stage_6_PartialResolution</rdfs:label>
+    <rdfs:comment>Partial spontaneous easing over time: supports learning that anxiety can fluctuate without intervention; track HR downtrend and spatial stability.</rdfs:comment>
+    <ns1:hasStageOrder rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</ns1:hasStageOrder>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasAvailableSlot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasAvailableSlot</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#TimeSlot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#MildRiskAnxiety">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>MildRiskAnxiety</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Anxiety_Profile"/>
+    <rdfs:comment>Represents mild risk anxiety level derived from clinical cut-offs.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N9811b0d8262b448a81da3128bbfeb68f">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="http://example.org/anxiety-vret#GAD7Score"/>
+    <swrl:argument1 rdf:resource="urn:swrl#p"/>
+    <swrl:argument2 rdf:resource="urn:swrl#s"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#triggersIntervention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>triggersIntervention</rdfs:label>
+    <rdfs:comment>Safety intervention triggered by a Safety_Event.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Safety_Event"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Safety_Intervention"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#reportsOnSession">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>reportsOnSession</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#System_Health_Report"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#TherapeuticSession"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Context_AmericanKitchen">
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Behavioral_Context"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label>AmericanKitchen</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#eventTimestamp">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>eventTimestamp</rdfs:label>
+    <rdfs:comment>Event timestamp (preferably VR timestamp synced to host).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Prediction_Result">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Prediction_Result</rdfs:label>
+    <rdfs:subClassOf rdf:nodeID="Nd386d04f82ff4d69beef709b8ac19309"/>
+    <rdfs:subClassOf rdf:nodeID="Nba04d3eea32647208564db8cbb343b14"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Worsening">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Worsening</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Treatment_Progress"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Data_Collection_Module">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Data_Collection_Module</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Application_Module"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasPhysiologicalData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasPhysiologicalData</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Physiological_Data"/>
+    <rdfs:comment>Links a patient to physiological data instances collected during sessions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N125d273efcee4866ab18f855b62cfaeb">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+    <swrl:arguments rdf:nodeID="Na7e1d12f000a4b7bb52e0a3e12daef20"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N088ec553905d478987e188c90e67ee8e">
+    <rdf:first rdf:nodeID="Nd1b44b8459c2493c84bf6e11862c8135"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#voice_pitch">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>voice_pitch</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Behavioral_Data"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#confidenceScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>confidenceScore</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Prediction_Result"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:comment>Confidence score associated with a specific prediction result.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8c65c5ed072647b79261088429b11cb7">
+    <rdf:first rdf:nodeID="Nb6b5c58d352a4bfa86cca63ac9710137"/>
+    <rdf:rest rdf:nodeID="Nc2bb01bea7454276ad2c263ff54cd7ba"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#triggersSoftIntervention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#HighPhysiologicalArousal"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Safety_Intervention"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ncfd457ddee344e6c90fa57d27f12cd91">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+    <swrl:classPredicate rdf:resource="http://example.org/anxiety-vret#HighPhysiologicalArousal"/>
+    <swrl:argument1 rdf:resource="urn:swrl#d"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#reportGeneratedAt">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>reportGeneratedAt</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Analysis_Report"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3b2697a3e49f431a9d2f3744e0be1993">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="http://example.org/anxiety-vret#GAD7Score"/>
+    <swrl:argument1 rdf:resource="urn:swrl#p"/>
+    <swrl:argument2 rdf:resource="urn:swrl#s"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N97312c1de32e4b0aaeb1409e6b9125fe">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.2</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd386d04f82ff4d69beef709b8ac19309">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://example.org/anxiety-vret#generatedBy"/>
+    <owl:onClass rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#reportsFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>reportsFor</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Reporting_Feedback"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:comment>CQ10–12</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#newValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>newValue</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Adaptation_History"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Interactable_Object">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Interactable_Object</rdfs:label>
+    <rdfs:comment>Object in the VR scene that can be interacted with and logged.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Risk_Level">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Risk_Level</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N71f842a57b2c43de80360964baebb5c1">
+    <rdf:first rdf:nodeID="N3b2697a3e49f431a9d2f3744e0be1993"/>
+    <rdf:rest rdf:nodeID="N6710731f8f994861bafda053f6ebb823"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#ML_Algorithm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>ML_Algorithm</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Multiple_Linear_Regression">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Multiple_Linear_Regression</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb56e6388c0b64332bb290ce295983175">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#generatedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>generatedBy</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Prediction_Result"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#ML_Algorithm"/>
+    <rdfs:comment>CQ4–5, CQ16</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne069359565314508a505556702da8f17">
+    <rdf:first rdf:resource="urn:swrl#s"/>
+    <rdf:rest rdf:nodeID="Nb56e6388c0b64332bb290ce295983175"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0f1a17a67ac54819aaf17cddcc72c5fb">
+    <rdf:first rdf:resource="urn:swrl#u"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Stable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Stable</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Treatment_Progress"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N515d5d6d495448e3bc3f1d823d23bec5">
+    <rdf:first rdf:nodeID="N907110a2060d475eb9cb1904c4a46ac6"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd5d8d5f1ed734c2aab3218612e4e6b03">
+    <rdf:first rdf:resource="urn:swrl#hr"/>
+    <rdf:rest rdf:nodeID="N1cde54bd4542408a8246fba507a1b257"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#hasAppointment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>hasAppointment</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Patient"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Appointment"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N304e72bf7c4e421ab60cf72e5c8c15c8">
+    <rdf:first rdf:resource="urn:swrl#b"/>
+    <rdf:rest rdf:nodeID="N97312c1de32e4b0aaeb1409e6b9125fe"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2cc280b088b142e6b4197524c59bbb97">
+    <rdf:first rdf:nodeID="Ne6d0849e296a4c329a58dafefb8ae14f"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na49024ab194a44dca5cfb97c18e927c1">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:swrl#p">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nffa75d7cdb0a4467a7cd063bba3a53cd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="Nc888879bc7d54a4a9bccb8f815183199"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N24d452b4004746dfa40c2bcdac2b02af">
+    <rdf:first rdf:nodeID="Ncfd457ddee344e6c90fa57d27f12cd91"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc4a254f2ad704cd9aae04903c60dfdf0">
+    <rdf:first rdf:nodeID="Nb19e771b9bae40dea76c58f7033272fc"/>
+    <rdf:rest rdf:nodeID="Nf07bdc5e3cbd4128bff5f9415253b70e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#objectId">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>objectId</rdfs:label>
+    <rdfs:comment>Identifier for interacted object.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Object_Interaction_Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf5eaf725a6ff4baaa21fb737337a6079">
+    <rdf:first rdf:nodeID="N9652571e57604207ac43dea8f62fa00d"/>
+    <rdf:rest rdf:nodeID="Nb98d3b630b314859a0a62360fe3d51ca"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Response">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Response</rdfs:label>
+    <rdfs:comment>Generic response observation during therapy.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#movement_acceleration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>movement_acceleration</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Behavioral_Data"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd04ee470e1f24e3491f8d42f9bd7ef0f">
+    <rdf:first rdf:nodeID="N55f093c604ab4911bef988b5ac77bf25"/>
+    <rdf:rest rdf:nodeID="N823aa3ccafa24fb19032aa9b279a1f7c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#fog_density">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>fog_density</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#VR_Scenario"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#TimeSlot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>TimeSlot</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#deliveredTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>deliveredTo</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Reporting_Feedback"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#IT_Specialist"/>
+    <rdfs:comment>CQ14</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1180a83bc0544e33a031571b189face3">
+    <rdf:first rdf:nodeID="N6254d87e6c58434d99f44c418c9170a8"/>
+    <rdf:rest rdf:nodeID="N6d3960d8f49943b2adc07a45df1067c5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#approvedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Manual_Override"/>
+    <rdfs:range rdf:resource="http://example.org/anxiety-vret#Therapist"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#epochDurationSeconds">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>epochDurationSeconds</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Preprocessing_Feature"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#ModerateRiskAnxiety">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>ModerateRiskAnxiety</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Risk_Level"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndfa5821657444fd0af1de0b36beddd9c">
+    <rdf:first rdf:resource="http://example.org/anxiety-vret#Safety_Intervention"/>
+    <rdf:rest rdf:nodeID="Nd48bb6f9861348d58b5063434176f07f"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Unexpected_Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/anxiety-vret#Scenario_Target"/>
+    <rdfs:label>Unexpected_Event</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Scenario_Target">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Scenario_Target</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na7b9d9e5a2114c2a82ac4f9a735a6afd">
+    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</rdf:first>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Reporting_Feedback">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Reporting_Feedback</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#predictionTimestamp">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>predictionTimestamp</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Prediction_Result"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd1b44b8459c2493c84bf6e11862c8135">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+    <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#greaterThanOrEqual"/>
+    <swrl:arguments rdf:nodeID="N01b52f46724a45928ed39b99be4fd69a"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Anxiety_Profile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Anxiety_Profile</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#significance_level">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>significance_level</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Analysis_Report"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6937f3eb8e2f4aaca037d46a10715639">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+    <swrl:propertyPredicate rdf:resource="http://example.org/anxiety-vret#heartRateValue"/>
+    <swrl:argument1 rdf:resource="urn:swrl#d"/>
+    <swrl:argument2 rdf:resource="urn:swrl#hr"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#ModerateAnxiety">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/anxiety-vret#Risk_Level"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#oldValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>oldValue</rdfs:label>
+    <rdfs:domain rdf:resource="http://example.org/anxiety-vret#Adaptation_History"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc644e2ce71bc40cb93157a102b2bd94c">
+    <rdf:first rdf:nodeID="Nfe98ec948fe0422fbd9f1ee5ecd07b9b"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N08ec401e843043e498717ff9030bce87">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="Ndfa5821657444fd0af1de0b36beddd9c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Use_Case">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Use_Case</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#Person">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Person</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5cd2dd9cb3b8408d84ed0a92c1410b92">
+    <rdf:first rdf:nodeID="Nf266be6737fb48a3aaabb6bdcabbd13e"/>
+    <rdf:rest rdf:nodeID="N71f842a57b2c43de80360964baebb5c1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/anxiety-vret#GAD7_Item">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+</rdf:RDF>
